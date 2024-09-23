@@ -168,7 +168,7 @@ legend("topleft", col=c(2,4), lty=1, lwd=2, pch=20,  bg="white",
 
 library(xts)     # install.packages("xts") if you don't have it already 
 djia_return = diff(log(djia$Close))[-1]
-par(mfrow=2:1)
+#par(mfrow=2:1)
 plot(djia$Close, col=4)
 plot(djia_return, col=4)
 
