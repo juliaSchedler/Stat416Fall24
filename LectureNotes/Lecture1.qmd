@@ -283,7 +283,7 @@ Which example does this bear the most resemblance to?
 #| label: white-noise
 
 w <- rnorm(500, 0, 1)
-plot(w, type = "l", col = "blue", xlab = "t (order of sampling)")
+plot(w, type = "p", col = "blue", xlab = "t (order of sampling)")
 ```
 
 ## What White Noise *isn't*
