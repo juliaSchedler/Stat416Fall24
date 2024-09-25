@@ -387,7 +387,7 @@
     "href": "LectureNotes/Lecture2.html#notation-and-data--white-noise",
     "title": "2  Lecture 2",
     "section": "3.1 Notation and Data- White noise",
-    "text": "3.1 Notation and Data- White noise\n“Let \\(w_t\\) be a white noise series”\n\n\n\nt\nRandom Variable\nExample data\n\n\n\n\n1\n\\(w_1 \\sim N(0, \\sigma_w^2)\\)\n0.5641923\n\n\n2\n\\(w_2 \\sim N(0, \\sigma_w^2)\\)\n-1.4967887\n\n\n\n\\(\\vdots\\)\n\\(\\vdots\\)\n\n\nt\n\\(w_t \\sim N(0, \\sigma^2_2)\\)\n1.2733748\n\n\n\\(\\vdots\\)\n\\(\\vdots\\)\n\\(\\vdots\\)\n\n\nn\n\\(w_n \\sim N(0, \\sigma_w^2)\\)\n-1.0855317\n\n\n\nIf we interpret the collection of \\(w_t\\) as a random vector, then \\(w_t \\sim MVN(\\vec{0}, I)\\) (why \\(I\\)?)\nNote: sometimes \\(w_t\\) could mean a (univariate) value of a white noise series for a particular time \\(t\\) (kind of like how you refer to an arbitrary \\(x_i\\) when you have a sample \\(x_1, \\dots, x_n\\)).",
+    "text": "3.1 Notation and Data- White noise\n“Let \\(w_t\\) be a white noise series”\n\n\n\nt\nRandom Variable\nExample data\n\n\n\n\n1\n\\(w_1 \\sim N(0, \\sigma_w^2)\\)\n0.9570727\n\n\n2\n\\(w_2 \\sim N(0, \\sigma_w^2)\\)\n-2.2583316\n\n\n\n\\(\\vdots\\)\n\\(\\vdots\\)\n\n\nt\n\\(w_t \\sim N(0, \\sigma^2_2)\\)\n-0.1932726\n\n\n\\(\\vdots\\)\n\\(\\vdots\\)\n\\(\\vdots\\)\n\n\nn\n\\(w_n \\sim N(0, \\sigma_w^2)\\)\n0.4632871\n\n\n\nIf we interpret the collection of \\(w_t\\) as a random vector, then \\(w_t \\sim MVN(\\vec{0}, I)\\) (why \\(I\\)?)\nNote: sometimes \\(w_t\\) could mean a (univariate) value of a white noise series for a particular time \\(t\\) (kind of like how you refer to an arbitrary \\(x_i\\) when you have a sample \\(x_1, \\dots, x_n\\)).",
     "crumbs": [
       "Week 1",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lecture 2</span>"
@@ -442,7 +442,7 @@
     "href": "LectureNotes/Lecture2.html#building-time-series-models-from-white-noise-1",
     "title": "2  Lecture 2",
     "section": "3.6 Building time series models from White Noise",
-    "text": "3.6 Building time series models from White Noise\n\n\n\n\n\n\n\n\nModel\nInputs\nOutput\n\n\n\n\nWhite noise\nprobability distribution, independence assumption, \\(\\sigma_w^2\\)\n\\(w_1, w_2, \\dots, w_n\\); for each \\(t = 1, \\dots, n\\) we have \\(w_t \\sim N(0, \\sigma^2_w)\\)\n\n\nMoving average with \\(p\\) points\n\\(w_1, w_2, \\dots, w_n\\)\n\\(v_t = \\sum_{i = 1}^{p} w_{t-(p-i)}\\)\n\n\nAutoregression of order \\(p\\)\n\\(w_1, w_2, \\dots, w_n\\) and \\(\\phi = (\\phi_1, \\dots, \\phi_p)\\)\n\\(x_t = \\sum_{i = 1}^p \\phi_ix_{t-i} + w_t\\)\n\n\nRandom walk with drift\n\\(w_1, w_2, \\dots, w_n\\) and \\(\\delta\\)\n\\(x_t = \\delta + x_{t-1} + w_t\\)\n\n\nSignal plus noise\n\\(w_1, w_2, \\dots, w_n\\) and a function \\(f(t)\\)\n\\(x_t = f(t) + w_t\\)\n\n\n\nIdentify which of the inputs are random variables, pre-specified constants, pre-specified functions, or parameters to be estimated.",
+    "text": "3.6 Building time series models from White Noise\n\n\n\n\n\n\n\n\nModel\nInputs\nOutput\n\n\n\n\nWhite noise\nprobability distribution, independence assumption, \\(\\sigma_w^2\\)\n\\(w_1, w_2, \\dots, w_n\\); for each \\(t = 1, \\dots, n\\) we have \\(w_t \\sim N(0, \\sigma^2_w)\\)\n\n\nMoving average with \\(p\\) points\n\\(w_1, w_2, \\dots, w_n\\)\n\\(v_t = \\frac{1}{p}\\sum_{i = 1}^{p} w_{t-(p-i)}\\)\n\n\nAutoregression of order \\(p\\)\n\\(w_1, w_2, \\dots, w_n\\) and \\(\\phi = (\\phi_1, \\dots, \\phi_p)\\)\n\\(x_t = \\sum_{i = 1}^p \\phi_ix_{t-i} + w_t\\)\n\n\nRandom walk with drift\n\\(w_1, w_2, \\dots, w_n\\) and \\(\\delta\\)\n\\(x_t = \\delta + x_{t-1} + w_t\\)\n\n\nSignal plus noise\n\\(w_1, w_2, \\dots, w_n\\) and a function \\(f(t)\\)\n\\(x_t = f(t) + w_t\\)\n\n\n\nIdentify which of the inputs are random variables, pre-specified constants, pre-specified functions, or parameters to be estimated.",
     "crumbs": [
       "Week 1",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lecture 2</span>"
@@ -706,18 +706,7 @@
     "href": "LectureNotes/Lecture2.html#r-example---moving-average-3",
     "title": "2  Lecture 2",
     "section": "7.2 R example - Moving Average",
-    "text": "7.2 R example - Moving Average\n\n\n\n\nCode\n# generate white noise\nn = 50\nw_t &lt;- rnorm(n, 0, 1)\n\n## manually lag terms\nw_t1 &lt;- c(NA, w_t[1:(n-1)])\nw_t2 &lt;- c(NA, NA, w_t[1:(n-2)])\nw_t3 &lt;- c(NA, NA, NA, w_t[1:(n-3)])\n## manually compute MA(3)\nv_t &lt;- (w_t + w_t1 + w_t2 + w_t3)/4\n\n## compare the vectors\nma_3 &lt;- cbind(v_t, w_t, w_t1, w_t2, w_t3)\nround(ma_3, 3)\n\n\n         v_t    w_t   w_t1   w_t2   w_t3\n [1,]     NA  1.063     NA     NA     NA\n [2,]     NA  0.150  1.063     NA     NA\n [3,]     NA -1.161  0.150  1.063     NA\n [4,] -0.227 -0.958 -1.161  0.150  1.063\n [5,] -0.619 -0.507 -0.958 -1.161  0.150\n [6,] -0.807 -0.600 -0.507 -0.958 -1.161\n [7,] -0.913 -1.587 -0.600 -0.507 -0.958\n [8,] -0.710 -0.144 -1.587 -0.600 -0.507\n [9,] -0.790 -0.827 -0.144 -1.587 -0.600\n[10,] -0.460  0.717 -0.827 -0.144 -1.587\n[11,]  0.041  0.419  0.717 -0.827 -0.144\n[12,]  0.198  0.483  0.419  0.717 -0.827\n[13,]  0.463  0.235  0.483  0.419  0.717\n[14,]  0.128 -0.624  0.235  0.483  0.419\n[15,] -0.186 -0.837 -0.624  0.235  0.483\n[16,]  0.053  1.438 -0.837 -0.624  0.235\n[17,]  0.271  1.107  1.438 -0.837 -0.624\n[18,]  0.512  0.342  1.107  1.438 -0.837\n[19,]  0.468 -1.014  0.342  1.107  1.438\n[20,]  0.577  1.871 -1.014  0.342  1.107\n[21,]  0.100 -0.802  1.871 -1.014  0.342\n[22,] -0.041 -0.221 -0.802  1.871 -1.014\n[23,]  0.402  0.758 -0.221 -0.802  1.871\n[24,]  0.390  1.823  0.758 -0.221 -0.802\n[25,]  0.661  0.282  1.823  0.758 -0.221\n[26,]  0.755  0.157  0.282  1.823  0.758\n[27,]  0.805  0.956  0.157  0.282  1.823\n[28,]  0.850  2.003  0.956  0.157  0.282\n[29,]  0.892  0.453  2.003  0.956  0.157\n[30,]  0.928  0.300  0.453  2.003  0.956\n[31,]  0.822  0.531  0.300  0.453  2.003\n[32,]  0.790  1.877  0.531  0.300  0.453\n[33,]  0.551 -0.503  1.877  0.531  0.300\n[34,]  0.239 -0.950 -0.503  1.877  0.531\n[35,]  0.383  1.110 -0.950 -0.503  1.877\n[36,] -0.425 -1.357  1.110 -0.950 -0.503\n[37,] -0.033  1.063 -1.357  1.110 -0.950\n[38,] -0.151 -1.422  1.063 -1.357  1.110\n[39,] -0.310  0.475 -1.422  1.063 -1.357\n[40,] -0.133 -0.647  0.475 -1.422  1.063\n[41,] -0.338  0.242 -0.647  0.475 -1.422\n[42,] -0.002 -0.077  0.242 -0.647  0.475\n[43,] -0.160 -0.159 -0.077  0.242 -0.647\n[44,] -0.031 -0.129 -0.159 -0.077  0.242\n[45,] -0.437 -1.383 -0.129 -0.159 -0.077\n[46,]  0.237  2.620 -1.383 -0.129 -0.159\n[47,] -0.023 -1.201  2.620 -1.383 -0.129\n[48,]  0.182  0.690 -1.201  2.620 -1.383\n[49,]  0.455 -0.290  0.690 -1.201  2.620\n[50,]  0.288  1.954 -0.290  0.690 -1.201\n\n\nCode\n## also compute using stats::filter\nv_t_alt &lt;- stats::filter(w_t, sides = 2, filter = rep(0.25, times = 4))\n\n\n\n\n## plot\n#par(mfrow = 2:1)\nplot(1:n, w_t, type = \"b\", lwd = 2, pch = 16, col = \"darkgrey\")\npoints(1:n, v_t, type = \"b\", lwd = 2, pch = 17, col = \"blueviolet\")\n\n\n\n\n\n\n\nplot(1:n, w_t, type = \"b\", lwd = 2, pch = 16, col = \"darkgrey\")\npoints(1:n, v_t_alt, type = \"b\", lwd = 2, pch = 17, col = \"darkgreen\")\n\n\n\n\n\n\n\n\n\n\n’ # Problem 1.1 ## Moving Averages (Problem 1.1)\n\nusing a method similar to the code in Example 1.9, generate 100 observations from the autoregression \\[\nx_t = -0.9x_{t-2} + w_t\\text{, }\\\\ w_t\\sim N(0, 1)\n\\]\nWrite down an expression for \\(\\phi\\) for this autoregression. How is \\(\\phi\\) different from the autoregression in Example 1.9?",
-    "crumbs": [
-      "Week 1",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lecture 2</span>"
-    ]
-  },
-  {
-    "objectID": "LectureNotes/Lecture2.html#moving-averages-problem-1.1-part-a",
-    "href": "LectureNotes/Lecture2.html#moving-averages-problem-1.1-part-a",
-    "title": "2  Lecture 2",
-    "section": "7.3 Moving Averages (Problem 1.1 Part a)",
-    "text": "7.3 Moving Averages (Problem 1.1 Part a)\n\nApply the moving average filter to the autoregression data you generated \\[\nv_t = (x_t + x_{t-1} + x_{t-2} + x_{t-4})\n\\]\nPlot \\(x_t\\) as points and lines and \\(v_t\\) as a line.",
+    "text": "7.2 R example - Moving Average\n\n\n\n\nCode\n# generate white noise\nn = 50\nw_t &lt;- rnorm(n, 0, 1)\n\n## manually lag terms\nw_t1 &lt;- c(NA, w_t[1:(n-1)])\nw_t2 &lt;- c(NA, NA, w_t[1:(n-2)])\nw_t3 &lt;- c(NA, NA, NA, w_t[1:(n-3)])\n## manually compute MA(3)\nv_t &lt;- (w_t + w_t1 + w_t2 + w_t3)/4\n\n## compare the vectors\nma_3 &lt;- cbind(v_t, w_t, w_t1, w_t2, w_t3)\nround(ma_3, 3)\n\n\n         v_t    w_t   w_t1   w_t2   w_t3\n [1,]     NA  1.063     NA     NA     NA\n [2,]     NA  0.150  1.063     NA     NA\n [3,]     NA -1.161  0.150  1.063     NA\n [4,] -0.227 -0.958 -1.161  0.150  1.063\n [5,] -0.619 -0.507 -0.958 -1.161  0.150\n [6,] -0.807 -0.600 -0.507 -0.958 -1.161\n [7,] -0.913 -1.587 -0.600 -0.507 -0.958\n [8,] -0.710 -0.144 -1.587 -0.600 -0.507\n [9,] -0.790 -0.827 -0.144 -1.587 -0.600\n[10,] -0.460  0.717 -0.827 -0.144 -1.587\n[11,]  0.041  0.419  0.717 -0.827 -0.144\n[12,]  0.198  0.483  0.419  0.717 -0.827\n[13,]  0.463  0.235  0.483  0.419  0.717\n[14,]  0.128 -0.624  0.235  0.483  0.419\n[15,] -0.186 -0.837 -0.624  0.235  0.483\n[16,]  0.053  1.438 -0.837 -0.624  0.235\n[17,]  0.271  1.107  1.438 -0.837 -0.624\n[18,]  0.512  0.342  1.107  1.438 -0.837\n[19,]  0.468 -1.014  0.342  1.107  1.438\n[20,]  0.577  1.871 -1.014  0.342  1.107\n[21,]  0.100 -0.802  1.871 -1.014  0.342\n[22,] -0.041 -0.221 -0.802  1.871 -1.014\n[23,]  0.402  0.758 -0.221 -0.802  1.871\n[24,]  0.390  1.823  0.758 -0.221 -0.802\n[25,]  0.661  0.282  1.823  0.758 -0.221\n[26,]  0.755  0.157  0.282  1.823  0.758\n[27,]  0.805  0.956  0.157  0.282  1.823\n[28,]  0.850  2.003  0.956  0.157  0.282\n[29,]  0.892  0.453  2.003  0.956  0.157\n[30,]  0.928  0.300  0.453  2.003  0.956\n[31,]  0.822  0.531  0.300  0.453  2.003\n[32,]  0.790  1.877  0.531  0.300  0.453\n[33,]  0.551 -0.503  1.877  0.531  0.300\n[34,]  0.239 -0.950 -0.503  1.877  0.531\n[35,]  0.383  1.110 -0.950 -0.503  1.877\n[36,] -0.425 -1.357  1.110 -0.950 -0.503\n[37,] -0.033  1.063 -1.357  1.110 -0.950\n[38,] -0.151 -1.422  1.063 -1.357  1.110\n[39,] -0.310  0.475 -1.422  1.063 -1.357\n[40,] -0.133 -0.647  0.475 -1.422  1.063\n[41,] -0.338  0.242 -0.647  0.475 -1.422\n[42,] -0.002 -0.077  0.242 -0.647  0.475\n[43,] -0.160 -0.159 -0.077  0.242 -0.647\n[44,] -0.031 -0.129 -0.159 -0.077  0.242\n[45,] -0.437 -1.383 -0.129 -0.159 -0.077\n[46,]  0.237  2.620 -1.383 -0.129 -0.159\n[47,] -0.023 -1.201  2.620 -1.383 -0.129\n[48,]  0.182  0.690 -1.201  2.620 -1.383\n[49,]  0.455 -0.290  0.690 -1.201  2.620\n[50,]  0.288  1.954 -0.290  0.690 -1.201\n\n\nCode\n## also compute using stats::filter\nv_t_alt &lt;- stats::filter(w_t, sides = 2, filter = rep(0.25, times = 4))\n\n\n\n\n## plot\n#par(mfrow = 2:1)\nplot(1:n, w_t, type = \"b\", lwd = 2, pch = 16, col = \"darkgrey\")\npoints(1:n, v_t, type = \"b\", lwd = 2, pch = 17, col = \"blueviolet\")\n\n\n\n\n\n\n\nplot(1:n, w_t, type = \"b\", lwd = 2, pch = 16, col = \"darkgrey\")\npoints(1:n, v_t_alt, type = \"b\", lwd = 2, pch = 17, col = \"darkgreen\")",
     "crumbs": [
       "Week 1",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lecture 2</span>"
@@ -727,8 +716,30 @@
     "objectID": "LectureNotes/Lecture2.html#moving-averages-problem-1.1",
     "href": "LectureNotes/Lecture2.html#moving-averages-problem-1.1",
     "title": "2  Lecture 2",
-    "section": "7.4 Moving Averages (Problem 1.1)",
-    "text": "7.4 Moving Averages (Problem 1.1)\n\n\nCode\nlibrary(astsa)\nw = rnorm(150,0,1) # 50 extra to avoid startup problems\nxa = filter(w, filter=c(0,-.9), method=\"recursive\")[-(1:50)] # AR\nva = filter(xa, rep(1,4)/4, sides=1) # moving average\ntsplot(xa, main=\"autoregression\", type = \"b\", pch = 16)\nlines(va, col=\"blueviolet\", lwd = 2)",
+    "section": "8.1 Moving Averages (Problem 1.1)",
+    "text": "8.1 Moving Averages (Problem 1.1)\n\nusing a method similar to the code in Example 1.9, generate 100 observations from the autoregression \\[\nx_t = -0.9x_{t-2} + w_t\\text{, }\\\\ w_t\\sim N(0, 1)\n\\]\nWrite down an expression for \\(\\phi\\) for this autoregression. How is \\(\\phi\\) different from the autoregression in Example 1.9?",
+    "crumbs": [
+      "Week 1",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lecture 2</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture2.html#moving-averages-problem-1.1-part-a",
+    "href": "LectureNotes/Lecture2.html#moving-averages-problem-1.1-part-a",
+    "title": "2  Lecture 2",
+    "section": "8.2 Moving Averages (Problem 1.1 Part a)",
+    "text": "8.2 Moving Averages (Problem 1.1 Part a)\n\nApply the moving average filter to the autoregression data you generated \\[\nv_t = (x_t + x_{t-1} + x_{t-2} + x_{t-4})\n\\]\nPlot \\(x_t\\) as points and lines and \\(v_t\\) as a line.",
+    "crumbs": [
+      "Week 1",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lecture 2</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture2.html#moving-averages-problem-1.1-1",
+    "href": "LectureNotes/Lecture2.html#moving-averages-problem-1.1-1",
+    "title": "2  Lecture 2",
+    "section": "8.3 Moving Averages (Problem 1.1)",
+    "text": "8.3 Moving Averages (Problem 1.1)\n\n\nCode\nlibrary(astsa)\nw = rnorm(150,0,1) # 50 extra to avoid startup problems\nxa = filter(w, filter=c(0,-.9), method=\"recursive\")[-(1:50)] # AR\nva = filter(xa, rep(1,4)/4, sides=1) # moving average\ntsplot(xa, main=\"autoregression\", type = \"b\", pch = 16)\nlines(va, col=\"blueviolet\", lwd = 2)",
     "crumbs": [
       "Week 1",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lecture 2</span>"
@@ -738,8 +749,8 @@
     "objectID": "LectureNotes/Lecture2.html#moving-averages-problem-1.1-part-b",
     "href": "LectureNotes/Lecture2.html#moving-averages-problem-1.1-part-b",
     "title": "2  Lecture 2",
-    "section": "7.5 Moving Averages (Problem 1.1 part b)",
-    "text": "7.5 Moving Averages (Problem 1.1 part b)\n\nRepeat the application of the MA filter but instead of starting with an autoregression, generate data \\(x_t\\) according to the signal plus noise model \\[\nx_t = 2\\cos(2\\pi t/4) + w_t\\\\ w_t \\sim N(0,1)\n\\]",
+    "section": "8.4 Moving Averages (Problem 1.1 part b)",
+    "text": "8.4 Moving Averages (Problem 1.1 part b)\n\nRepeat the application of the MA filter but instead of starting with an autoregression, generate data \\(x_t\\) according to the signal plus noise model \\[\nx_t = 2\\cos(2\\pi t/4) + w_t\\\\ w_t \\sim N(0,1)\n\\]",
     "crumbs": [
       "Week 1",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lecture 2</span>"
@@ -749,8 +760,8 @@
     "objectID": "LectureNotes/Lecture2.html#moving-averages-problem-1.1-part-b-1",
     "href": "LectureNotes/Lecture2.html#moving-averages-problem-1.1-part-b-1",
     "title": "2  Lecture 2",
-    "section": "7.6 Moving Averages (Problem 1.1 part b)",
-    "text": "7.6 Moving Averages (Problem 1.1 part b)\n\n\nCode\nxb = 2*cos(2*pi*(1:100)/4) + rnorm(100,0,1) # sinusoid + noise\nvb = filter(xb, rep(1,4)/4, sides=1) # moving average\ntsplot(xb, main=\"sinusoid + noise\", type = \"b\", pch = 16)\nlines(vb, col=\"blueviolet\", lwd = 2)",
+    "section": "8.5 Moving Averages (Problem 1.1 part b)",
+    "text": "8.5 Moving Averages (Problem 1.1 part b)\n\n\nCode\nxb = 2*cos(2*pi*(1:100)/4) + rnorm(100,0,1) # sinusoid + noise\nvb = filter(xb, rep(1,4)/4, sides=1) # moving average\ntsplot(xb, main=\"sinusoid + noise\", type = \"b\", pch = 16)\nlines(vb, col=\"blueviolet\", lwd = 2)",
     "crumbs": [
       "Week 1",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lecture 2</span>"
@@ -760,8 +771,8 @@
     "objectID": "LectureNotes/Lecture2.html#moving-averages-problem-1.1-part-c",
     "href": "LectureNotes/Lecture2.html#moving-averages-problem-1.1-part-c",
     "title": "2  Lecture 2",
-    "section": "7.7 Moving Averages (Problem 1.1 part c)",
-    "text": "7.7 Moving Averages (Problem 1.1 part c)\n\n\nCode\nxb = 2*cos(2*pi*(1:100)/4) + rnorm(100,0,1) # sinusoid + noise\nvb = filter(xb, rep(1,4)/4, sides=1) # moving average\ntsplot(xb, main=\"sinusoid + noise\", type = \"b\", pch = 16)\nlines(vb, col=\"blueviolet\", lwd = 2)",
+    "section": "8.6 Moving Averages (Problem 1.1 part c)",
+    "text": "8.6 Moving Averages (Problem 1.1 part c)\n\n\nCode\nxb = 2*cos(2*pi*(1:100)/4) + rnorm(100,0,1) # sinusoid + noise\nvb = filter(xb, rep(1,4)/4, sides=1) # moving average\ntsplot(xb, main=\"sinusoid + noise\", type = \"b\", pch = 16)\nlines(vb, col=\"blueviolet\", lwd = 2)",
     "crumbs": [
       "Week 1",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lecture 2</span>"
@@ -771,8 +782,8 @@
     "objectID": "LectureNotes/Lecture2.html#moving-averages-problem-1.1-part-c-1",
     "href": "LectureNotes/Lecture2.html#moving-averages-problem-1.1-part-c-1",
     "title": "2  Lecture 2",
-    "section": "7.8 Moving Averages (Problem 1.1 part c)",
-    "text": "7.8 Moving Averages (Problem 1.1 part c)\n\n\nCode\nxb = 2*cos(2*pi*(1:100)/4) + rnorm(100,0,1) # sinusoid + noise\nvb = filter(xb, rep(1,4)/4, sides=1) # moving average\ntsplot(xb, main=\"sinusoid + noise\", type = \"b\", pch = 16)\nlines(vb, col=\"blueviolet\", lwd = 2)",
+    "section": "8.7 Moving Averages (Problem 1.1 part c)",
+    "text": "8.7 Moving Averages (Problem 1.1 part c)\n\n\nCode\nxb = 2*cos(2*pi*(1:100)/4) + rnorm(100,0,1) # sinusoid + noise\nvb = filter(xb, rep(1,4)/4, sides=1) # moving average\ntsplot(xb, main=\"sinusoid + noise\", type = \"b\", pch = 16)\nlines(vb, col=\"blueviolet\", lwd = 2)",
     "crumbs": [
       "Week 1",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lecture 2</span>"
@@ -782,8 +793,8 @@
     "objectID": "LectureNotes/Lecture2.html#stationarity",
     "href": "LectureNotes/Lecture2.html#stationarity",
     "title": "2  Lecture 2",
-    "section": "7.9 Stationarity",
-    "text": "7.9 Stationarity\nA time series is stationary if\n\nthe mean function (\\(\\mu_t\\)) is constant and does not depend on time \\(t\\)\nthe autocovariance function (\\(\\gamma(s,t)\\)) depends on \\(s\\) and \\(t\\) only though their difference",
+    "section": "8.8 Stationarity",
+    "text": "8.8 Stationarity\nA time series is stationary if\n\nthe mean function (\\(\\mu_t\\)) is constant and does not depend on time \\(t\\)\nthe autocovariance function (\\(\\gamma(s,t)\\)) depends on \\(s\\) and \\(t\\) only though their difference",
     "crumbs": [
       "Week 1",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lecture 2</span>"
@@ -793,8 +804,8 @@
     "objectID": "LectureNotes/Lecture2.html#example-2.14-stationarity-of-a-random-walk",
     "href": "LectureNotes/Lecture2.html#example-2.14-stationarity-of-a-random-walk",
     "title": "2  Lecture 2",
-    "section": "7.10 Example 2.14 Stationarity of a Random Walk",
-    "text": "7.10 Example 2.14 Stationarity of a Random Walk\nLook, it’s our friend the random walk:\n\\[\nx_t = \\delta t + \\sum_{j = 1}^t w_j\n\\] Their mean function is \\(\\E(x_t) = 0\\), and their covariance function is \\(\\gamma_x(s, t) = \\min\\{s,t\\}\\sigma^2_w\\)\nIs a random walk stationary?",
+    "section": "8.9 Example 2.14 Stationarity of a Random Walk",
+    "text": "8.9 Example 2.14 Stationarity of a Random Walk\nLook, it’s our friend the random walk:\n\\[\nx_t = \\delta t + \\sum_{j = 1}^t w_j\n\\] Their mean function is \\(\\E(x_t) = 0\\), and their covariance function is \\(\\gamma_x(s, t) = \\min\\{s,t\\}\\sigma^2_w\\)\nIs a random walk stationary?",
     "crumbs": [
       "Week 1",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lecture 2</span>"
