@@ -125,7 +125,7 @@ Identify which of the inputs are random variables, pre-specified constants, pre-
 | Model                          | Inputs                                                          | Output                                                                                 |
 |------------------------|------------------------|------------------------|
 | White noise                    | probability distribution, independence assumption, $\sigma_w^2$ | $w_1, w_2, \dots, w_n$; for each $t = 1, \dots, n$ we have $w_t \sim N(0, \sigma^2_w)$ |
-| Moving average with $p$ points | $w_1, w_2, \dots, w_n$                                          | $v_t = \sum_{i = 1}^{p} w_{t-(p-i)}$                                                   |
+| Moving average with $p$ points | $w_1, w_2, \dots, w_n$                                          | $v_t = \frac{1}{p}\sum_{i = 1}^{p} w_{t-(p-i)}$                                                   |
 | Autoregression of order $p$    | $w_1, w_2, \dots, w_n$ and $\phi = (\phi_1, \dots, \phi_p)$     | $x_t = \sum_{i = 1}^p \phi_ix_{t-i} + w_t$                                             |
 | Random walk with drift         | $w_1, w_2, \dots, w_n$ and $\delta$                             | $x_t = \delta + x_{t-1} + w_t$                                                         |
 | Signal plus noise              | $w_1, w_2, \dots, w_n$ and a function $f(t)$                    | $x_t = f(t) + w_t$                                                                     |
@@ -481,7 +481,9 @@ points(1:n, v_t_alt, type = "b", lwd = 2, pch = 17, col = "darkgreen")
 :::
 :::
 
-' \# Problem 1.1 \## Moving Averages (Problem 1.1)
+# Problem 1.1 
+
+## Moving Averages (Problem 1.1)
 
 -   using a method similar to the code in Example 1.9, generate 100 observations from the autoregression $$
     x_t = -0.9x_{t-2} + w_t\text{, }\\ w_t\sim N(0, 1)
