@@ -8,6 +8,9 @@ book:
   chapters:
     - index.qmd
     - part: Week1.qmd
+      chapters: 
+        - LectureNotes/Lecture1.qmd
+        - LectureNotes/Lecture2.qmd
 
 bibliography: references.bib
 
