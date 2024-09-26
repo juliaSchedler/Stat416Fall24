@@ -387,7 +387,7 @@
     "href": "LectureNotes/Lecture2.html#notation-and-data--white-noise",
     "title": "2  Lecture 2",
     "section": "3.1 Notation and Data- White noise",
-    "text": "3.1 Notation and Data- White noise\n“Let \\(w_t\\) be a white noise series”\n\n\n\nt\nRandom Variable\nExample data\n\n\n\n\n1\n\\(w_1 \\sim N(0, \\sigma_w^2)\\)\n-1.6016365\n\n\n2\n\\(w_2 \\sim N(0, \\sigma_w^2)\\)\n-0.689931\n\n\n\n\\(\\vdots\\)\n\\(\\vdots\\)\n\n\nt\n\\(w_t \\sim N(0, \\sigma^2_w)\\)\n0.6968788\n\n\n\\(\\vdots\\)\n\\(\\vdots\\)\n\\(\\vdots\\)\n\n\nn\n\\(w_n \\sim N(0, \\sigma_w^2)\\)\n2.8803344\n\n\n\nIf we interpret the collection of \\(w_t\\) as a random vector, then \\(w_t \\sim MVN(\\vec{0}, I)\\) (why \\(I\\)?)\nNote: sometimes \\(w_t\\) could mean a (univariate) value of a white noise series for a particular time \\(t\\) (kind of like how you refer to an arbitrary \\(x_i\\) when you have a sample \\(x_1, \\dots, x_n\\)).",
+    "text": "3.1 Notation and Data- White noise\n“Let \\(w_t\\) be a white noise series”\n\n\n\nt\nRandom Variable\nExample data\n\n\n\n\n1\n\\(w_1 \\sim N(0, \\sigma_w^2)\\)\n-1.2894493\n\n\n2\n\\(w_2 \\sim N(0, \\sigma_w^2)\\)\n-2.265324\n\n\n\n\\(\\vdots\\)\n\\(\\vdots\\)\n\n\nt\n\\(w_t \\sim N(0, \\sigma^2_w)\\)\n-0.3271013\n\n\n\\(\\vdots\\)\n\\(\\vdots\\)\n\\(\\vdots\\)\n\n\nn\n\\(w_n \\sim N(0, \\sigma_w^2)\\)\n-0.1920906\n\n\n\nIf we interpret the collection of \\(w_t\\) as a random vector, then \\(w_t \\sim MVN(\\vec{0}, I)\\) (why \\(I\\)?)\nNote: sometimes \\(w_t\\) could mean a (univariate) value of a white noise series for a particular time \\(t\\) (kind of like how you refer to an arbitrary \\(x_i\\) when you have a sample \\(x_1, \\dots, x_n\\)).",
     "crumbs": [
       "Week 1",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lecture 2</span>"
@@ -768,19 +768,19 @@
     ]
   },
   {
-    "objectID": "LectureNotes/Lecture2.html#moving-averages-problem-1.1-part-b-2",
-    "href": "LectureNotes/Lecture2.html#moving-averages-problem-1.1-part-b-2",
+    "objectID": "LectureNotes/Lecture2.html#moving-averages-problem-1.1-part-c",
+    "href": "LectureNotes/Lecture2.html#moving-averages-problem-1.1-part-c",
     "title": "2  Lecture 2",
-    "section": "8.6 Moving Averages (Problem 1.1 part b)",
-    "text": "8.6 Moving Averages (Problem 1.1 part b)\n\nRepeat the application of the MA filter but instead of starting with an autoregression, use the Johnson and Johnson data from Lecture 1.",
+    "section": "8.6 Moving Averages (Problem 1.1 part c)",
+    "text": "8.6 Moving Averages (Problem 1.1 part c)\n\nRepeat the application of the MA filter but instead of starting with an autoregression, use the Johnson and Johnson data from Lecture 1.",
     "crumbs": [
       "Week 1",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lecture 2</span>"
     ]
   },
   {
-    "objectID": "LectureNotes/Lecture2.html#moving-averages-problem-1.1-part-c",
-    "href": "LectureNotes/Lecture2.html#moving-averages-problem-1.1-part-c",
+    "objectID": "LectureNotes/Lecture2.html#moving-averages-problem-1.1-part-c-1",
+    "href": "LectureNotes/Lecture2.html#moving-averages-problem-1.1-part-c-1",
     "title": "2  Lecture 2",
     "section": "8.7 Moving Averages (Problem 1.1 part c)",
     "text": "8.7 Moving Averages (Problem 1.1 part c)\n\n\nCode\nxc = log(jj)\nvc = stats::filter(xc, filter = rep(1,4)/4, sides=1, method = \"convolution\") # moving average\ntsplot(xc, main=\"johnson and johnson (log scale)\", type = \"b\", pch = 16)\nlines(vc, col=\"blueviolet\", lwd = 2)",
@@ -809,6 +809,17 @@
     "crumbs": [
       "Week 1",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lecture 2</span>"
+    ]
+  },
+  {
+    "objectID": "Assignments/Assignment1.html",
+    "href": "Assignments/Assignment1.html",
+    "title": "3  Stat 416 Assignment 1 Due Monday, September 30 at 11:59:59PM",
+    "section": "",
+    "text": "A paper I worked on as a research scientist considered the time series of the concentration (measured as \\(\\log_{10}\\) copies per Liter) of the SARS-CoV-2 virus from 5 different locations in the City of Houston, visualized in parts (c)-(g) of the figure below.\nThe goal of this study was to see whether the information gleaned from sampling the lift stations, which represent smaller populations, was different than the information gleaned from sampling only the larger wastewater treatment plant. In other words, one research question was to determine whether the WWTP (dark blue) time series has different dynamics (behavior) than those that represent the lift stations.\nThe methods in this paper are touched on in chapter 8 of our textbook. For this assignment, we will use the wastewater data as an example and practice our plotting and time series data science skills.\n\n\n\n(a) The WWTP catchment areas for the City of Houston, with the WWTP of focus shaded. The box shows the extent of (b), the map showing the 4 lift stations considered in the analysis. (c–g) Plot the time series of Log10 Copies/L for the WWTP and the 4 lift station facilities, referred to as Lift Station A–D, with periods of missing values indicated by grey rectangles.\n\n\n\n[6 points] Which of the time series has the most missing data? Which appears to have the most variability? Does the overall behavior of the series seem to be similar?\n[5 points] Load the (synthetic) wastewater data from https://raw.githubusercontent.com/hou-wastewater-epi-org/online_trend_estimation/refs/heads/main/Data/synthetic_ww_time_series.csv using the read.csv function\n\nww &lt;- read.csv(#your code here)\n\n[5 points] Inspect the data. Verify that each of the series from the map above are included in the .csv (hint: what are the unique values of the name field?)\n\n#your code here\n\n[5 points] Convert the date field to a Date format using the function as.Date.\n\nww$dates &lt;- as.Date(# your code here)\n\n[2 points] Install and load the tidyverse package.\n\n## your code here\n\n[5 points] We will work with just the WWTP series for now. Use dplyr::filter to extract the values for just the WWTP series.\n\nww_WWTP &lt;- ww %&gt;% dplyr::filter(#your code here)\n\n[10 points] What is the time interval between the observations? How do you know?\n[10 points total] Use the tsplot function from the astsa package to plot the WWTP series [5 points].\nMake sure to use the dates [2 points]field for the x-axis and specify good axis and plot labels using the xlab/ylab, and main arguments [1 point each]. (see the documentation ?tsplot for more)\n\n## your code here\n\n[10 points] Apply a moving average filter with 3 time points using the stats::filter function and save the result in a vector called ww_ma_3. (Similar to the final part of problem 1.1, see here in Lecture Notes).\n\nlibrary(astsa)\nww_ma_3 &lt;- stats::filter(#your code here)\n\n[10 points] Plot the moving average you computed on top of the tsplot in a different color using the lines function (see linked Problem 1.1 above). In the call to the lines function, also use type = l and lwd = 2.\n\ntsplot(# your code here)\nlines(# your code here)\n\n[15 points] Apply the moving average filter again, but this time use 5 time points, call it ww_ma_5. Plot just the WWTP series data and the ww_ma_5 you just computed, and use a different color for this MA process than you used in question 10.\n\n## your code here (similar to part 9 and 10, but with 5 time points)\n\n[5 points] Inspect the plot you generated in questions 10 and 11. Which MA process looks “smoother”?\n[10 points] Describe the different way that the missing data in the WWTP series impacts the moving average estimates for the case of 3 time points vs. 5 time points.\n[5 points] Note that the data you used for this activity was “synthetic” wastewater data. Why might a researcher share a synthetic version of their data? What do you think that might mean?",
+    "crumbs": [
+      "Week 1",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Assignment 1</span>"
     ]
   }
 ]

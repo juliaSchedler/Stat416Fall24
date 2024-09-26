@@ -7,9 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Julia Schedler">
-<meta name="dcterms.date" content="2024-09-23">
 
-<title>Stat 416 Statistical Analysis of Time Series</title>
+<title>Stat 416 Statistical Analysis of Time Series - 3&nbsp; Stat 416 Assignment 1 Due Monday, September 30 at 11:59:59PM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,26 +21,60 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./Week1.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../LectureNotes/Lecture2.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -70,6 +103,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -82,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Welcome to Time Series!</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Week1.html">Week 1</a></li><li class="breadcrumb-item"><a href="../Assignments/Assignment1.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Assignment 1</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -97,7 +159,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Stat 416 Statistical Analysis of Time Series</a> 
+      <a href="../">Stat 416 Statistical Analysis of Time Series</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -109,13 +171,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome to Time Series!</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./Week1.html" class="sidebar-item-text sidebar-link">
+            <a href="../Week1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 1</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -124,19 +186,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./LectureNotes/Lecture1.html" class="sidebar-item-text sidebar-link">
+  <a href="../LectureNotes/Lecture1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Lecture 1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./LectureNotes/Lecture2.html" class="sidebar-item-text sidebar-link">
+  <a href="../LectureNotes/Lecture2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lecture 2</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Assignments/Assignment1.html" class="sidebar-item-text sidebar-link">
+  <a href="../Assignments/Assignment1.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Assignment 1</span></span></a>
   </div>
 </li>
@@ -148,20 +210,14 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#welcome-to-time-series" id="toc-welcome-to-time-series" class="nav-link active" data-scroll-target="#welcome-to-time-series">Welcome to Time Series!</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Week1.html">Week 1</a></li><li class="breadcrumb-item"><a href="../Assignments/Assignment1.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Assignment 1</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Stat 416 Statistical Analysis of Time Series</h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Stat 416 Assignment 1 Due Monday, September 30 at 11:59:59PM</span></h1>
 </div>
 
 
@@ -175,12 +231,6 @@ ul.task-list li input[type="checkbox"] {
           </div>
   </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">September 23, 2024</p>
-    </div>
-  </div>
   
     
   </div>
@@ -190,13 +240,63 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="welcome-to-time-series" class="level1 unnumbered">
-<h1 class="unnumbered">Welcome to Time Series!</h1>
-<p>The lecture slides and code here are heavily drawn from the book I have selected for this course.</p>
-<p>Also, big thanks to our Lab Assistant, Bena Smith, for serving as editor for these notes!</p>
+<p>A paper I worked on as a research scientist considered the time series of the concentration (measured as <span class="math inline">\(\log_{10}\)</span> copies per Liter) of the SARS-CoV-2 virus from 5 different locations in the City of Houston, visualized in parts (c)-(g) of the figure below.</p>
+<p>The goal of this study was to see whether the information gleaned from sampling the lift stations, which represent smaller populations, was different than the information gleaned from sampling only the larger wastewater treatment plant. In other words, one research question was to determine whether the WWTP (dark blue) time series has different dynamics (behavior) than those that represent the lift stations.</p>
+<p>The methods in this paper are touched on in chapter 8 of our textbook. For this assignment, we will use the wastewater data as an example and practice our plotting and time series data science skills.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41598-024-56175-2/MediaObjects/41598_2024_56175_Fig1_HTML.png" class="img-fluid figure-img"></p>
+<figcaption>(a) The WWTP catchment areas for the City of Houston, with the WWTP of focus shaded. The box shows the extent of (b), the map showing the 4 lift stations considered in the analysis. (c–g) Plot the time series of Log10 Copies/L for the WWTP and the 4 lift station facilities, referred to as Lift Station A–D, with periods of missing values indicated by grey rectangles.</figcaption>
+</figure>
+</div>
+<ol type="1">
+<li><p>[6 points] Which of the time series has the most missing data? Which appears to have the most variability? Does the overall behavior of the series seem to be similar?</p></li>
+<li><p>[5 points] Load the (synthetic) wastewater data from <a href="https://raw.githubusercontent.com/hou-wastewater-epi-org/online_trend_estimation/refs/heads/main/Data/synthetic_ww_time_series.csv" class="uri">https://raw.githubusercontent.com/hou-wastewater-epi-org/online_trend_estimation/refs/heads/main/Data/synthetic_ww_time_series.csv</a> using the <code>read.csv</code> function</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>ww <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="co">#your code here)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p>[5 points] Inspect the data. Verify that each of the series from the map above are included in the .csv (hint: what are the unique values of the <code>name</code> field?)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p>[5 points] Convert the date field to a Date format using the function as.Date.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ww<span class="sc">$</span>dates <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="co"># your code here)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p>[2 points] Install and load the <code>tidyverse</code> package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">## your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p>[5 points] We will work with just the WWTP series for now. Use <code>dplyr::filter</code> to extract the values for just the WWTP series.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ww_WWTP <span class="ot">&lt;-</span> ww <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="co">#your code here)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p>[10 points] What is the time interval between the observations? How do you know?</p></li>
+<li><p>[10 points total] Use the <code>tsplot</code> function from the <code>astsa</code> package to plot the <code>WWTP</code> series [5 points].</p>
+<p>Make sure to use the <code>dates</code> [2 points]field for the x-axis and specify good axis and plot labels using the <code>xlab</code>/<code>ylab</code>, and <code>main</code> arguments [1 point each]. (see the documentation <code>?tsplot</code> for more)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">## your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p>[10 points] Apply a moving average filter with 3 time points using the stats::filter function and save the result in a vector called <code>ww_ma_3</code>. (Similar to the final part of problem 1.1, see <a href="http://localhost:4512/LectureNotes/Lecture2.html#moving-averages-problem-1.1-part-c">here</a> in Lecture Notes).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(astsa)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>ww_ma_3 <span class="ot">&lt;-</span> stats<span class="sc">::</span><span class="fu">filter</span>(<span class="co">#your code here)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p>[10 points] Plot the moving average you computed on top of the tsplot in a different color using the lines function (see linked Problem 1.1 above). In the call to the lines function, also use <code>type = l</code> and <code>lwd = 2</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tsplot</span>(<span class="co"># your code here)</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="co"># your code here)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p>[15 points] Apply the moving average filter again, but this time use 5 time points, call it <code>ww_ma_5</code>. Plot just the <code>WWTP</code> series data and the <code>ww_ma_5</code> you just computed, and use a different color for this MA process than you used in question 10.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">## your code here (similar to part 9 and 10, but with 5 time points)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p>[5 points] Inspect the plot you generated in questions 10 and 11. Which MA process looks “smoother”?</p></li>
+<li><p>[10 points] Describe the different way that the missing data in the WWTP series impacts the moving average estimates for the case of 3 time points vs.&nbsp;5 time points.</p></li>
+<li><p>[5 points] Note that the data you used for this activity was “synthetic” wastewater data. Why might a researcher share a synthetic version of their data? What do you think that might mean?</p></li>
+</ol>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -610,11 +710,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../LectureNotes/Lecture2.html" class="pagination-link" aria-label="Lecture 2">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lecture 2</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Week1.html" class="pagination-link" aria-label="Week 1">
-        <span class="nav-page-text">Week 1</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
