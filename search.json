@@ -387,7 +387,7 @@
     "href": "LectureNotes/Lecture2.html#notation-and-data--white-noise",
     "title": "2  Lecture 2",
     "section": "3.1 Notation and Data- White noise",
-    "text": "3.1 Notation and Data- White noise\n“Let \\(w_t\\) be a white noise series”\n\n\n\nt\nRandom Variable\nExample data\n\n\n\n\n1\n\\(w_1 \\sim N(0, \\sigma_w^2)\\)\n0.9570727\n\n\n2\n\\(w_2 \\sim N(0, \\sigma_w^2)\\)\n-2.2583316\n\n\n\n\\(\\vdots\\)\n\\(\\vdots\\)\n\n\nt\n\\(w_t \\sim N(0, \\sigma^2_2)\\)\n-0.1932726\n\n\n\\(\\vdots\\)\n\\(\\vdots\\)\n\\(\\vdots\\)\n\n\nn\n\\(w_n \\sim N(0, \\sigma_w^2)\\)\n0.4632871\n\n\n\nIf we interpret the collection of \\(w_t\\) as a random vector, then \\(w_t \\sim MVN(\\vec{0}, I)\\) (why \\(I\\)?)\nNote: sometimes \\(w_t\\) could mean a (univariate) value of a white noise series for a particular time \\(t\\) (kind of like how you refer to an arbitrary \\(x_i\\) when you have a sample \\(x_1, \\dots, x_n\\)).",
+    "text": "3.1 Notation and Data- White noise\n“Let \\(w_t\\) be a white noise series”\n\n\n\nt\nRandom Variable\nExample data\n\n\n\n\n1\n\\(w_1 \\sim N(0, \\sigma_w^2)\\)\n-1.6016365\n\n\n2\n\\(w_2 \\sim N(0, \\sigma_w^2)\\)\n-0.689931\n\n\n\n\\(\\vdots\\)\n\\(\\vdots\\)\n\n\nt\n\\(w_t \\sim N(0, \\sigma^2_w)\\)\n0.6968788\n\n\n\\(\\vdots\\)\n\\(\\vdots\\)\n\\(\\vdots\\)\n\n\nn\n\\(w_n \\sim N(0, \\sigma_w^2)\\)\n2.8803344\n\n\n\nIf we interpret the collection of \\(w_t\\) as a random vector, then \\(w_t \\sim MVN(\\vec{0}, I)\\) (why \\(I\\)?)\nNote: sometimes \\(w_t\\) could mean a (univariate) value of a white noise series for a particular time \\(t\\) (kind of like how you refer to an arbitrary \\(x_i\\) when you have a sample \\(x_1, \\dots, x_n\\)).",
     "crumbs": [
       "Week 1",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lecture 2</span>"
@@ -768,22 +768,22 @@
     ]
   },
   {
-    "objectID": "LectureNotes/Lecture2.html#moving-averages-problem-1.1-part-c",
-    "href": "LectureNotes/Lecture2.html#moving-averages-problem-1.1-part-c",
+    "objectID": "LectureNotes/Lecture2.html#moving-averages-problem-1.1-part-b-2",
+    "href": "LectureNotes/Lecture2.html#moving-averages-problem-1.1-part-b-2",
     "title": "2  Lecture 2",
-    "section": "8.6 Moving Averages (Problem 1.1 part c)",
-    "text": "8.6 Moving Averages (Problem 1.1 part c)\n\n\nCode\nxb = 2*cos(2*pi*(1:100)/4) + rnorm(100,0,1) # sinusoid + noise\nvb = filter(xb, rep(1,4)/4, sides=1) # moving average\ntsplot(xb, main=\"sinusoid + noise\", type = \"b\", pch = 16)\nlines(vb, col=\"blueviolet\", lwd = 2)",
+    "section": "8.6 Moving Averages (Problem 1.1 part b)",
+    "text": "8.6 Moving Averages (Problem 1.1 part b)\n\nRepeat the application of the MA filter but instead of starting with an autoregression, use the Johnson and Johnson data from Lecture 1.",
     "crumbs": [
       "Week 1",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lecture 2</span>"
     ]
   },
   {
-    "objectID": "LectureNotes/Lecture2.html#moving-averages-problem-1.1-part-c-1",
-    "href": "LectureNotes/Lecture2.html#moving-averages-problem-1.1-part-c-1",
+    "objectID": "LectureNotes/Lecture2.html#moving-averages-problem-1.1-part-c",
+    "href": "LectureNotes/Lecture2.html#moving-averages-problem-1.1-part-c",
     "title": "2  Lecture 2",
     "section": "8.7 Moving Averages (Problem 1.1 part c)",
-    "text": "8.7 Moving Averages (Problem 1.1 part c)\n\n\nCode\nxb = 2*cos(2*pi*(1:100)/4) + rnorm(100,0,1) # sinusoid + noise\nvb = filter(xb, rep(1,4)/4, sides=1) # moving average\ntsplot(xb, main=\"sinusoid + noise\", type = \"b\", pch = 16)\nlines(vb, col=\"blueviolet\", lwd = 2)",
+    "text": "8.7 Moving Averages (Problem 1.1 part c)\n\n\nCode\nxc = log(jj)\nvc = stats::filter(xc, filter = rep(1,4)/4, sides=1, method = \"convolution\") # moving average\ntsplot(xc, main=\"johnson and johnson (log scale)\", type = \"b\", pch = 16)\nlines(vc, col=\"blueviolet\", lwd = 2)",
     "crumbs": [
       "Week 1",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lecture 2</span>"

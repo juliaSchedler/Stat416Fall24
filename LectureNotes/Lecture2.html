@@ -263,8 +263,8 @@ window.Quarto = {
   <li><a href="#moving-averages-problem-1.1-1" id="toc-moving-averages-problem-1.1-1" class="nav-link" data-scroll-target="#moving-averages-problem-1.1-1"><span class="header-section-number">8.3</span> Moving Averages (Problem 1.1)</a></li>
   <li><a href="#moving-averages-problem-1.1-part-b" id="toc-moving-averages-problem-1.1-part-b" class="nav-link" data-scroll-target="#moving-averages-problem-1.1-part-b"><span class="header-section-number">8.4</span> Moving Averages (Problem 1.1 part b)</a></li>
   <li><a href="#moving-averages-problem-1.1-part-b-1" id="toc-moving-averages-problem-1.1-part-b-1" class="nav-link" data-scroll-target="#moving-averages-problem-1.1-part-b-1"><span class="header-section-number">8.5</span> Moving Averages (Problem 1.1 part b)</a></li>
-  <li><a href="#moving-averages-problem-1.1-part-c" id="toc-moving-averages-problem-1.1-part-c" class="nav-link" data-scroll-target="#moving-averages-problem-1.1-part-c"><span class="header-section-number">8.6</span> Moving Averages (Problem 1.1 part c)</a></li>
-  <li><a href="#moving-averages-problem-1.1-part-c-1" id="toc-moving-averages-problem-1.1-part-c-1" class="nav-link" data-scroll-target="#moving-averages-problem-1.1-part-c-1"><span class="header-section-number">8.7</span> Moving Averages (Problem 1.1 part c)</a></li>
+  <li><a href="#moving-averages-problem-1.1-part-b-2" id="toc-moving-averages-problem-1.1-part-b-2" class="nav-link" data-scroll-target="#moving-averages-problem-1.1-part-b-2"><span class="header-section-number">8.6</span> Moving Averages (Problem 1.1 part b)</a></li>
+  <li><a href="#moving-averages-problem-1.1-part-c" id="toc-moving-averages-problem-1.1-part-c" class="nav-link" data-scroll-target="#moving-averages-problem-1.1-part-c"><span class="header-section-number">8.7</span> Moving Averages (Problem 1.1 part c)</a></li>
   <li><a href="#stationarity" id="toc-stationarity" class="nav-link" data-scroll-target="#stationarity"><span class="header-section-number">8.8</span> Stationarity</a></li>
   <li><a href="#example-2.14-stationarity-of-a-random-walk" id="toc-example-2.14-stationarity-of-a-random-walk" class="nav-link" data-scroll-target="#example-2.14-stationarity-of-a-random-walk"><span class="header-section-number">8.9</span> Example 2.14 Stationarity of a Random Walk</a></li>
   </ul></li>
@@ -347,12 +347,12 @@ window.Quarto = {
 <tr class="odd">
 <td>1</td>
 <td><span class="math inline">\(w_1 \sim N(0, \sigma_w^2)\)</span></td>
-<td>0.9570727</td>
+<td>-1.6016365</td>
 </tr>
 <tr class="even">
 <td>2</td>
 <td><span class="math inline">\(w_2 \sim N(0, \sigma_w^2)\)</span></td>
-<td>-2.2583316</td>
+<td>-0.689931</td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -361,8 +361,8 @@ window.Quarto = {
 </tr>
 <tr class="even">
 <td>t</td>
-<td><span class="math inline">\(w_t \sim N(0, \sigma^2_2)\)</span></td>
-<td>-0.1932726</td>
+<td><span class="math inline">\(w_t \sim N(0, \sigma^2_w)\)</span></td>
+<td>0.6968788</td>
 </tr>
 <tr class="odd">
 <td><span class="math inline">\(\vdots\)</span></td>
@@ -372,7 +372,7 @@ window.Quarto = {
 <tr class="even">
 <td>n</td>
 <td><span class="math inline">\(w_n \sim N(0, \sigma_w^2)\)</span></td>
-<td>0.4632871</td>
+<td>2.8803344</td>
 </tr>
 </tbody>
 </table>
@@ -1175,39 +1175,26 @@ x_t = 2\cos(2\pi t/4) + w_t\\ w_t \sim N(0,1)
 </div>
 </div>
 </section>
-<section id="moving-averages-problem-1.1-part-c" class="level2" data-number="8.6">
-<h2 data-number="8.6" class="anchored" data-anchor-id="moving-averages-problem-1.1-part-c"><span class="header-section-number">8.6</span> Moving Averages (Problem 1.1 part c)</h2>
+<section id="moving-averages-problem-1.1-part-b-2" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="moving-averages-problem-1.1-part-b-2"><span class="header-section-number">8.6</span> Moving Averages (Problem 1.1 part b)</h2>
+<ul>
+<li>Repeat the application of the MA filter but instead of starting with an autoregression, use the Johnson and Johnson data from Lecture 1.</li>
+</ul>
+</section>
+<section id="moving-averages-problem-1.1-part-c" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="moving-averages-problem-1.1-part-c"><span class="header-section-number">8.7</span> Moving Averages (Problem 1.1 part c)</h2>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>xb <span class="ot">=</span> <span class="dv">2</span><span class="sc">*</span><span class="fu">cos</span>(<span class="dv">2</span><span class="sc">*</span>pi<span class="sc">*</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>)<span class="sc">/</span><span class="dv">4</span>) <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>,<span class="dv">0</span>,<span class="dv">1</span>) <span class="co"># sinusoid + noise</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>vb <span class="ot">=</span> <span class="fu">filter</span>(xb, <span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">4</span>)<span class="sc">/</span><span class="dv">4</span>, <span class="at">sides=</span><span class="dv">1</span>) <span class="co"># moving average</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tsplot</span>(xb, <span class="at">main=</span><span class="st">"sinusoid + noise"</span>, <span class="at">type =</span> <span class="st">"b"</span>, <span class="at">pch =</span> <span class="dv">16</span>)</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(vb, <span class="at">col=</span><span class="st">"blueviolet"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>xc <span class="ot">=</span> <span class="fu">log</span>(jj)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>vc <span class="ot">=</span> stats<span class="sc">::</span><span class="fu">filter</span>(xc, <span class="at">filter =</span> <span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">4</span>)<span class="sc">/</span><span class="dv">4</span>, <span class="at">sides=</span><span class="dv">1</span>, <span class="at">method =</span> <span class="st">"convolution"</span>) <span class="co"># moving average</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tsplot</span>(xc, <span class="at">main=</span><span class="st">"johnson and johnson (log scale)"</span>, <span class="at">type =</span> <span class="st">"b"</span>, <span class="at">pch =</span> <span class="dv">16</span>)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(vc, <span class="at">col=</span><span class="st">"blueviolet"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
 <p><img src="Lecture2_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="moving-averages-problem-1.1-part-c-1" class="level2" data-number="8.7">
-<h2 data-number="8.7" class="anchored" data-anchor-id="moving-averages-problem-1.1-part-c-1"><span class="header-section-number">8.7</span> Moving Averages (Problem 1.1 part c)</h2>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>xb <span class="ot">=</span> <span class="dv">2</span><span class="sc">*</span><span class="fu">cos</span>(<span class="dv">2</span><span class="sc">*</span>pi<span class="sc">*</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>)<span class="sc">/</span><span class="dv">4</span>) <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>,<span class="dv">0</span>,<span class="dv">1</span>) <span class="co"># sinusoid + noise</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>vb <span class="ot">=</span> <span class="fu">filter</span>(xb, <span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">4</span>)<span class="sc">/</span><span class="dv">4</span>, <span class="at">sides=</span><span class="dv">1</span>) <span class="co"># moving average</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tsplot</span>(xb, <span class="at">main=</span><span class="st">"sinusoid + noise"</span>, <span class="at">type =</span> <span class="st">"b"</span>, <span class="at">pch =</span> <span class="dv">16</span>)</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(vb, <span class="at">col=</span><span class="st">"blueviolet"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Lecture2_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
