@@ -43,7 +43,7 @@ $$
 | 1        | $w_1 \sim N(0, \sigma_w^2)$ | `{r} rnorm(1)` |
 | 2        | $w_2 \sim N(0, \sigma_w^2)$ | `{r} rnorm(1)` |
 |          | $\vdots$                    | $\vdots$       |
-| t        | $w_t \sim N(0, \sigma^2_2)$ | `{r} rnorm(1)` |
+| t        | $w_t \sim N(0, \sigma^2_w)$ | `{r} rnorm(1)` |
 | $\vdots$ | $\vdots$                    | $\vdots$       |
 | n        | $w_n \sim N(0, \sigma_w^2)$ | `{r} rnorm(1)` |
 
@@ -528,26 +528,20 @@ tsplot(xb, main="sinusoid + noise", type = "b", pch = 16)
 lines(vb, col="blueviolet", lwd = 2)
 ```
 
-## Moving Averages (Problem 1.1 part c)
+## Moving Averages (Problem 1.1 part b)
 
-```{r}
-#| code-fold: true
-#| echo: true
-xb = 2*cos(2*pi*(1:100)/4) + rnorm(100,0,1) # sinusoid + noise
-vb = filter(xb, rep(1,4)/4, sides=1) # moving average
-tsplot(xb, main="sinusoid + noise", type = "b", pch = 16)
-lines(vb, col="blueviolet", lwd = 2)
-```
+-   Repeat the application of the MA filter but instead of starting with an autoregression, use the Johnson and Johnson data from Lecture 1.
+
 
 ## Moving Averages (Problem 1.1 part c)
 
 ```{r}
 #| code-fold: true
 #| echo: true
-xb = 2*cos(2*pi*(1:100)/4) + rnorm(100,0,1) # sinusoid + noise
-vb = filter(xb, rep(1,4)/4, sides=1) # moving average
-tsplot(xb, main="sinusoid + noise", type = "b", pch = 16)
-lines(vb, col="blueviolet", lwd = 2)
+xc = log(jj)
+vc = stats::filter(xc, filter = rep(1,4)/4, sides=1, method = "convolution") # moving average
+tsplot(xc, main="johnson and johnson (log scale)", type = "b", pch = 16)
+lines(vc, col="blueviolet", lwd = 2)
 ```
 
 ## Stationarity
