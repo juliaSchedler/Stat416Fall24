@@ -528,7 +528,7 @@ tsplot(xb, main="sinusoid + noise", type = "b", pch = 16)
 lines(vb, col="blueviolet", lwd = 2)
 ```
 
-## Moving Averages (Problem 1.1 part b)
+## Moving Averages (Problem 1.1 part c)
 
 -   Repeat the application of the MA filter but instead of starting with an autoregression, use the Johnson and Johnson data from Lecture 1.
 
