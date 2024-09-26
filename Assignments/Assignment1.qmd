@@ -1,7 +1,6 @@
 ---
 title: "Stat 416 Assignment 1 Due Monday, September 30 at 11:59:59PM"
 author: "Julia Schedler"
-format: 
 ---
 
 A paper I worked on as a research scientist considered the time series of the concentration (measured as $\log_{10}$ copies per Liter) of the SARS-CoV-2 virus from 5 different locations in the City of Houston, visualized in parts (c)-(g) of the figure below.
