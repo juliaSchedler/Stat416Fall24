@@ -13,6 +13,9 @@ book:
         - LectureNotes/Lecture2.qmd
         - href: Assignments/Assignment1.qmd
           text: Assignment 1
+    - part: Week2
+      chapters:
+        - LectureNotes/Lecture3.qmd
 
 bibliography: references.bib
 

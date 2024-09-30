@@ -21,16 +21,18 @@ $$
 -   Exposure to some common time series models
 
 ## Today
+
 -   Notation review
 -   Mean and covariance function of a time series
 -   R code activity
 -   Stationarity (if time)
 
 ## Coming up/notices
+
 -   I combined the Canvas sections (applies to section 2)
 -   Quiz 1 posted today, due tomorrow at midnight (20 minutes to do it)
 -   Assignment 1 will also be posted today, due Monday at midnight (boundary between Monday and Tuesday)
-- Next week's office hours: M 4-5, T 12-2
+-   Next week's office hours: M 4-5, T 12-2
 
 # Review of notation
 
@@ -125,7 +127,7 @@ Identify which of the inputs are random variables, pre-specified constants, pre-
 | Model                          | Inputs                                                          | Output                                                                                 |
 |------------------------|------------------------|------------------------|
 | White noise                    | probability distribution, independence assumption, $\sigma_w^2$ | $w_1, w_2, \dots, w_n$; for each $t = 1, \dots, n$ we have $w_t \sim N(0, \sigma^2_w)$ |
-| Moving average with $p$ points | $w_1, w_2, \dots, w_n$                                          | $v_t = \frac{1}{p}\sum_{i = 1}^{p} w_{t-(p-i)}$                                                   |
+| Moving average with $p$ points | $w_1, w_2, \dots, w_n$                                          | $v_t = \frac{1}{p}\sum_{i = 1}^{p} w_{t-(p-i)}$                                        |
 | Autoregression of order $p$    | $w_1, w_2, \dots, w_n$ and $\phi = (\phi_1, \dots, \phi_p)$     | $x_t = \sum_{i = 1}^p \phi_ix_{t-i} + w_t$                                             |
 | Random walk with drift         | $w_1, w_2, \dots, w_n$ and $\delta$                             | $x_t = \delta + x_{t-1} + w_t$                                                         |
 | Signal plus noise              | $w_1, w_2, \dots, w_n$ and a function $f(t)$                    | $x_t = f(t) + w_t$                                                                     |
@@ -280,6 +282,7 @@ where $\E$ is the expected value operator, shown here for the case of a continuo
 So, for example, if $x_t$ is normally distributed then $f$ here would be the normal probability density function (p.d.f.).
 
 ## Visual examples
+
 ```{r}
 library(astsa)
 set.seed(314159265) # so you can reproduce the results
@@ -296,6 +299,7 @@ lines(x, col=6)
 ```
 
 ## Visual examples
+
 ```{r}
 # cs = 2*cos(2*pi*(1:500)/50 + .6*pi)    # as in the text
 cs = 2*cos(2*pi*(1:500+15)/50)           # same thing 
@@ -307,6 +311,7 @@ tsplot(cs + 5*w, ylab="", main = expression(x[t]==2*cos(2*pi*t/50+.6*pi)+N(0,25)
 points(cs, ylab="", main = expression(x[t]==2*cos(2*pi*t/50+.6*pi)), type = "l", col = "blueviolet", lwd = 2)
 
 ```
+
 ## Notating the mean function
 
 *"When no confusion exists about which time series we are referring to, we will drop a subscript and write* $\mu_{xt}$ *as* $\mu_t$*."*
@@ -342,8 +347,9 @@ $$
 What is the mean function of $x_t$?
 
 ## Break
-- I saw several turkeys this morning
-- I saw someone almost die on a skateboard
+
+-   I saw several turkeys this morning
+-   I saw someone almost die on a skateboard
 
 # Autocovariance
 
@@ -401,14 +407,13 @@ $\gamma_v(s, t) = cov(v_s, v_t) =  \begin{cases}\frac{3}{9}\sigma^2_w & \text{ i
 
 Does this equation make intuitive sense?
 
-## Example 2.9 Autocovariance of a Random Walk 
+## Example 2.9 Autocovariance of a Random Walk
 
 $x_t = \sum_{j = 1}^t w_j$
 
 $$
 \gamma_x(s, t) = cov(x_s, x_t) = cov\left ( \sum_{j=1}^s w_j, \sum_{k = 1}^t w_k\right ) = \min\{s,t\}\sigma^2_w
-$$
-If you waaaaant, property 2.7 and figuring out what $\E(w_jw_k)$ is for $j \ne k$
+$$ If you waaaaant, property 2.7 and figuring out what $\E(w_jw_k)$ is for $j \ne k$
 
 # In-class R problems
 
@@ -481,7 +486,7 @@ points(1:n, v_t_alt, type = "b", lwd = 2, pch = 17, col = "darkgreen")
 :::
 :::
 
-# Problem 1.1 
+# Problem 1.1
 
 ## Moving Averages (Problem 1.1)
 
@@ -532,7 +537,6 @@ lines(vb, col="blueviolet", lwd = 2)
 
 -   Repeat the application of the MA filter but instead of starting with an autoregression, use the Johnson and Johnson data from Lecture 1.
 
-
 ## Moving Averages (Problem 1.1 part c)
 
 ```{r}
@@ -557,7 +561,6 @@ Look, it's our friend the random walk:
 
 $$
 x_t = \delta t + \sum_{j = 1}^t w_j
-$$
-Their mean function is $\E(x_t) = 0$, and their covariance function is $\gamma_x(s, t) = \min\{s,t\}\sigma^2_w$
+$$ Their mean function is $\E(x_t) = 0$, and their covariance function is $\gamma_x(s, t) = \min\{s,t\}\sigma^2_w$
 
 Is a random walk stationary?
