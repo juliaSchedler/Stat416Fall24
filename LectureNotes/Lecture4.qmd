@@ -29,7 +29,7 @@ $$
 
 ## Reminders
 - Syllabus participation policy
-- Assignments: Going forward, must submit **rendered pdf**
+- Assignments: Going forward, must submit **rendered pdf** of code portion. (if you want to be nice to me, do this for Assignment 2, but starts with Assignment 3)
 - Late quizzes: Going forward: Email me ahead of time, otherwise it's a 0 
 - Exam details: No use of computer, code will be covered but basic, notes sheet is allowed, practice test will be provided
 
