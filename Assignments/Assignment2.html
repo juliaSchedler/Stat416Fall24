@@ -282,6 +282,7 @@ window.Quarto = {
 \newcommand\E{{\mathbb{E}}}
 \]</span></p>
 </div>
+<p>NOTE: I forgot to include a relevant detail for Part 2, number 7. The change is <strong>bolded.</strong> Sorry!!! 😔💩🃟 Part 2 number 8 should be easier to answer now.</p>
 <section id="part-1-math" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="part-1-math"><span class="header-section-number">6.1</span> Part 1: Math</h2>
 <p>In class, we have worked with “Signal plus noise Model” (equation 1.5)</p>
@@ -346,7 +347,7 @@ y_t = x_t - 2\cos(2\pi\frac{t+15}{50})
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x_t_lag1 <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">lag</span>(<span class="co"># your code here)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="7" type="1">
-<li>Fit an intercept-free regression model between <code>x_t</code> and <code>x_t_lag</code>. Provide the value of the slope estimate and interpret the value in the context of this simulation.</li>
+<li><strong>Re-simulate an AR(1) process as in number 1, but this time with 100 observations. Also recompute <code>x_t_lag1</code>.</strong> Fit an intercept-free regression model <strong>to predict</strong> <code>x_t</code> <strong>from</strong> <code>x_t_lag</code>. Provide the value of the slope estimate and interpret the value in the context of this simulation.</li>
 </ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>linear_model <span class="ot">&lt;-</span> <span class="co"># your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
