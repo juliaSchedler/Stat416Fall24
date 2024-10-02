@@ -387,7 +387,7 @@
     "href": "LectureNotes/Lecture2.html#notation-and-data--white-noise",
     "title": "2  Lecture 2",
     "section": "3.1 Notation and Data- White noise",
-    "text": "3.1 Notation and Data- White noise\n“Let \\(w_t\\) be a white noise series”\n\n\n\nt\nRandom Variable\nExample data\n\n\n\n\n1\n\\(w_1 \\sim N(0, \\sigma_w^2)\\)\n1.1040763\n\n\n2\n\\(w_2 \\sim N(0, \\sigma_w^2)\\)\n1.1547417\n\n\n\n\\(\\vdots\\)\n\\(\\vdots\\)\n\n\nt\n\\(w_t \\sim N(0, \\sigma^2_w)\\)\n-1.6861273\n\n\n\\(\\vdots\\)\n\\(\\vdots\\)\n\\(\\vdots\\)\n\n\nn\n\\(w_n \\sim N(0, \\sigma_w^2)\\)\n1.1329534\n\n\n\nIf we interpret the collection of \\(w_t\\) as a random vector, then \\(w_t \\sim MVN(\\vec{0}, I)\\) (why \\(I\\)?)\nNote: sometimes \\(w_t\\) could mean a (univariate) value of a white noise series for a particular time \\(t\\) (kind of like how you refer to an arbitrary \\(x_i\\) when you have a sample \\(x_1, \\dots, x_n\\)).",
+    "text": "3.1 Notation and Data- White noise\n“Let \\(w_t\\) be a white noise series”\n\n\n\nt\nRandom Variable\nExample data\n\n\n\n\n1\n\\(w_1 \\sim N(0, \\sigma_w^2)\\)\n-0.9717371\n\n\n2\n\\(w_2 \\sim N(0, \\sigma_w^2)\\)\n-0.2006198\n\n\n\n\\(\\vdots\\)\n\\(\\vdots\\)\n\n\nt\n\\(w_t \\sim N(0, \\sigma^2_w)\\)\n0.3424794\n\n\n\\(\\vdots\\)\n\\(\\vdots\\)\n\\(\\vdots\\)\n\n\nn\n\\(w_n \\sim N(0, \\sigma_w^2)\\)\n0.3172178\n\n\n\nIf we interpret the collection of \\(w_t\\) as a random vector, then \\(w_t \\sim MVN(\\vec{0}, I)\\) (why \\(I\\)?)\nNote: sometimes \\(w_t\\) could mean a (univariate) value of a white noise series for a particular time \\(t\\) (kind of like how you refer to an arbitrary \\(x_i\\) when you have a sample \\(x_1, \\dots, x_n\\)).",
     "crumbs": [
       "Week 1",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lecture 2</span>"
@@ -1205,6 +1205,523 @@
     "crumbs": [
       "Week2",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lecture 3</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html",
+    "href": "LectureNotes/Lecture4.html",
+    "title": "5  Lecture 4",
+    "section": "",
+    "text": "5.1 Recap",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#recap",
+    "href": "LectureNotes/Lecture4.html#recap",
+    "title": "5  Lecture 4",
+    "section": "",
+    "text": "\\[\n\\newcommand\\E{{\\mathbb{E}}}\n\\]\n\n\nDecomposing time series\nStationarity (theoretically and with data)\nSome activities",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#today",
+    "href": "LectureNotes/Lecture4.html#today",
+    "title": "5  Lecture 4",
+    "section": "5.2 Today",
+    "text": "5.2 Today\n\nFinish up activities from Lecture 3\nTrend stationarity\nVisualizing autocovariance (third attempt)\n“Office hours”",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#reminders",
+    "href": "LectureNotes/Lecture4.html#reminders",
+    "title": "5  Lecture 4",
+    "section": "5.3 Reminders",
+    "text": "5.3 Reminders\n\nSyllabus participation policy\nLate quizzes\nExam details",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#activity-1-export-price-of-salmon-example-3.1",
+    "href": "LectureNotes/Lecture4.html#activity-1-export-price-of-salmon-example-3.1",
+    "title": "5  Lecture 4",
+    "section": "5.4 Activity 1: Export Price of Salmon (Example 3.1)",
+    "text": "5.4 Activity 1: Export Price of Salmon (Example 3.1)\n\n\nCode\nlibrary(astsa)\n\nsummary(fit &lt;- lm(salmon~time(salmon), na.action=NULL))\n## \n## Call:\n## lm(formula = salmon ~ time(salmon), na.action = NULL)\n## \n## Residuals:\n##      Min       1Q   Median       3Q      Max \n## -1.69187 -0.62453 -0.07024  0.51561  2.34959 \n## \n## Coefficients:\n##                Estimate Std. Error t value Pr(&gt;|t|)    \n## (Intercept)  -503.08947   34.44164  -14.61   &lt;2e-16 ***\n## time(salmon)    0.25290    0.01713   14.76   &lt;2e-16 ***\n## ---\n## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n## \n## Residual standard error: 0.8814 on 164 degrees of freedom\n## Multiple R-squared:  0.5706, Adjusted R-squared:  0.568 \n## F-statistic: 217.9 on 1 and 164 DF,  p-value: &lt; 2.2e-16\ntsplot(salmon, col=4, ylab=\"USD per KG\", main=\"Salmon Export Price\")\nabline(fit)",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#activity-1-export-price-of-salmon-example-3.1-1",
+    "href": "LectureNotes/Lecture4.html#activity-1-export-price-of-salmon-example-3.1-1",
+    "title": "5  Lecture 4",
+    "section": "5.5 Activity 1: Export Price of Salmon (Example 3.1)",
+    "text": "5.5 Activity 1: Export Price of Salmon (Example 3.1)\n\nDoes this time series appear stationary?\nThe (mathematical) equation in the book for the trend line above is:\n\\[\nx_t = \\beta_0 + \\beta_1z_t + w_t, z_t = 2003\\frac{8}{12}, 2001\\frac{8}{12}, \\dots, 2017\\frac{5}{12}\n\\]\n\nThere is a typo in this equation. Correct the typo. (hint: examine to the first few entries of time(salmon)\nWhy are there fractions of the year? Explain what the fractional values mean and describe how they appear in the data set within R.\n\nInterpret the estimate of the slope.",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#activity-2-trend-stationarity-example-2.19",
+    "href": "LectureNotes/Lecture4.html#activity-2-trend-stationarity-example-2.19",
+    "title": "5  Lecture 4",
+    "section": "5.6 Activity 2: Trend Stationarity (Example 2.19)",
+    "text": "5.6 Activity 2: Trend Stationarity (Example 2.19)\nConsider the time series model \\[x_t = \\beta t + y_t\\] Assume \\(y_t\\) is stationary with mean function \\(\\mu_y\\) and and autocovariance function \\(\\gamma_y(h)\\)\n\nCompare this equation to the regression equation in the last example.\nWhat are the mean function and autocovariance function of \\(x_t\\)?",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#trend-stationarity-model",
+    "href": "LectureNotes/Lecture4.html#trend-stationarity-model",
+    "title": "5  Lecture 4",
+    "section": "5.7 Trend stationarity model",
+    "text": "5.7 Trend stationarity model\nA time series which is nonstationary in the mean but is stationary in the autocovariance is sometimes called Trend stationarity.\n\nI’m actually not sure if it just refers to linear trends?? I’ll ask people at my conference",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#visualizing-the-autocovariance-for-trend-stationarity",
+    "href": "LectureNotes/Lecture4.html#visualizing-the-autocovariance-for-trend-stationarity",
+    "title": "5  Lecture 4",
+    "section": "5.8 Visualizing the autocovariance for trend stationarity",
+    "text": "5.8 Visualizing the autocovariance for trend stationarity\n\n\nCode\nlibrary(ggplot2)\nset.seed(807)\nt &lt;- seq(1, 10, 1)\nx_t &lt;- 0.5*t \n#x &lt;- x - mean(x)\n#y &lt;- y - mean(y)\n\ndf &lt;- data.frame(t, x_t)\n\n# For every row in `df`, compute a rotated normal density centered at `y` and shifted by `x`\ncurves &lt;- lapply(seq_len(NROW(df)), function(i) {\n  mu &lt;- df$x_t[i]\n  range &lt;- mu + c(-1.5, 1.5)\n  seq &lt;- seq(range[1], range[2], length.out = 100)\n  data.frame(\n    t = -1 * dnorm(seq, mean = mu, sd = 0.5) + df$t[i],\n    x_t = seq,\n    grp = i\n  )\n})\n# Combine above densities in one data.frame\ncurves &lt;- do.call(rbind, curves)\n\nnew.x = seq(from = 1, to = 10, by = .1)\nnew.y = .5*new.x\ntrend_line &lt;- data.frame(x = new.x,\n                       y = new.y)\nggplot(df, aes(t, x_t)) +\n  geom_point(col = \"blueviolet\", pch = 17) +\n  #geom_line() +\n  # The path draws the curve\n  geom_path(data = curves, aes(group = grp)) +\n  geom_line(data = trend_line, aes(x=x,y=y), col = \"blueviolet\") +\n  lims(y = c(-2,10)) +\n  scale_x_continuous(breaks = seq(1, 10, by = 1)) +\n  theme_minimal() + \n  theme( # remove the vertical grid lines\n           panel.grid = element_blank() ,\n           # explicitly set the horizontal lines (or they will disappear too)\n           panel.grid.major.x = element_line( size=.1, color=\"black\" )) +   \n  geom_rect(aes(xmin = 1.1, xmax = 2.1, ymin = -1, ymax = 3), fill = NA, col = \"blue\")+   \n  geom_rect(aes(xmin = 7.1, xmax = 8.1, ymin = 2, ymax = 6), fill = NA, col = \"magenta\")\n\n\nWarning: The `size` argument of `element_line()` is deprecated as of ggplot2 3.4.0.\nℹ Please use the `linewidth` argument instead.\n\n\n\n\n\n\n\n\n\nCode\n  # The polygon does the shading. We can use `oob_squish()` to set a range.\n  #geom_polygon(data = curves, aes(y = scales::oob_squish(y, c(0, Inf)),group = grp))",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#simulate-many-time-series-from-the-trend-stationarity-model",
+    "href": "LectureNotes/Lecture4.html#simulate-many-time-series-from-the-trend-stationarity-model",
+    "title": "5  Lecture 4",
+    "section": "5.9 Simulate many time series from the trend stationarity model",
+    "text": "5.9 Simulate many time series from the trend stationarity model\n\n\nCode\nTime &lt;- 10\nn_sim &lt;- 100\nall_series = matrix(rep(NA, times = n_sim*Time), nrow = Time)\nfor(i in 1:n_sim){\n  cs = 0.25*1:Time        # same thing \n  w  = rnorm(Time + 50,0,1)\n  #w_dep = stats::filter(w, filter = rep(1/3,3))[2:(Time + 1)]\n  #all_series[,i] &lt;- cs + w_dep\n  all_series[,i] &lt;- cs + w[2:(Time+1)]\n  #names(all_series)[i] &lt;- paste(\"sim_\", i)\n  \n}\nfit &lt;- lm(all_series[,1]~time(all_series[,1]), na.action=NULL)\ntsplot(all_series[,1], main = \"One simulated Time series\", type = \"b\", col = c(\"black\", \"blue\", rep(\"black\", times = 5), \"magenta\", \"black\", \"black\"), pch = 16, cex = 3)\nabline(fit)",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#simulate-many-time-series-from-the-trend-stationarity-model-1",
+    "href": "LectureNotes/Lecture4.html#simulate-many-time-series-from-the-trend-stationarity-model-1",
+    "title": "5  Lecture 4",
+    "section": "5.10 Simulate many time series from the trend stationarity model",
+    "text": "5.10 Simulate many time series from the trend stationarity model\n\n\nCode\npar(mfrow = c(2,2))\nfor(i in 1:4){\n  fit &lt;- lm(all_series[,i]~time(all_series[,i]), na.action=NULL)\n  tsplot(all_series[,i], type = \"b\", col = c(\"black\", \"blue\", rep(\"black\", times = 5), \"magenta\", \"black\", \"black\"), pch = 16, cex = 3, ylim = c(-3,6))\n  abline(fit)\n\n}",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#simulate-many-time-series-from-the-trend-stationarity-model-2",
+    "href": "LectureNotes/Lecture4.html#simulate-many-time-series-from-the-trend-stationarity-model-2",
+    "title": "5  Lecture 4",
+    "section": "5.11 Simulate many time series from the trend stationarity model",
+    "text": "5.11 Simulate many time series from the trend stationarity model\n\n\nCode\ntsplot(all_series, spaghetti = TRUE, main = \"100 Simuated Trend Stationary Time Series\", type = \"b\")\nrect(xleft = 1.5, xright = 2.5, ybottom = -2, ytop = 4, border = \"blue\", lwd = 2)\nrect(xleft = 7.5, xright = 8.5, ybottom = -.5, ytop = 5, border = \"magenta\", lwd = 2)",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#marginal-and-joint-distributions-t8-and-s2",
+    "href": "LectureNotes/Lecture4.html#marginal-and-joint-distributions-t8-and-s2",
+    "title": "5  Lecture 4",
+    "section": "5.12 Marginal and Joint Distributions t=8 and s=2",
+    "text": "5.12 Marginal and Joint Distributions t=8 and s=2\n\n\nCode\ni = 2\nx_comp &lt;- all_series[i,]\nx_8 &lt;- all_series[8,]\n\npar(mfrow = c(2,2))\nhist(x_comp, col = \"blue\", main = paste(\"Histogram of simulations at t=\", i), xlab = paste(\"x_\",i))\nhist(x_8, col = \"magenta\", main = paste(\"Histogram of simulations at t=8\"), xlab = \"x_8\")\nplot(x_comp, x_8, col = \"purple\", pch = 16, main = \"Joint Distribution\")\nabline(lm(x_8~x_comp))",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#marginal-and-joint-distributions",
+    "href": "LectureNotes/Lecture4.html#marginal-and-joint-distributions",
+    "title": "5  Lecture 4",
+    "section": "5.13 Marginal and Joint Distributions",
+    "text": "5.13 Marginal and Joint Distributions\n\n\nCode\nlibrary(ggplot2)\nlibrary(ggExtra)\nx &lt;- data.frame(x_comp, x_8)\n# Save the scatter plot in a variable\np &lt;- ggplot(x, aes(x = x_comp, y = x_8)) +\n  geom_point(col = \"purple\") + xlim(-3,6) + ylim(-3,6)+ \n  geom_text(aes(x = 2, y = -1, label = paste(\"rho(\",i,\",8) = \\n cor(x_\",i,\", x_8) = \", round(cor(x_comp, x_8),3)), size = 6)) + coord_fixed() \n\n# Arguments for each marginal histogram\nggMarginal(p, type = \"density\", adjust = 2,\n           xparams = list(col = \"blue\", fill = \"blue\"),\n           yparams = list(col = \"magenta\", fill = \"magenta\"))\n\n\nWarning in geom_text(aes(x = 2, y = -1, label = paste(\"rho(\", i, \",8) = \\n cor(x_\", : All aesthetics have length 1, but the data has 100 rows.\nℹ Please consider using `annotate()` or provide this layer with data containing\n  a single row.\nAll aesthetics have length 1, but the data has 100 rows.\nℹ Please consider using `annotate()` or provide this layer with data containing\n  a single row.",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#all-simulated-time-series",
+    "href": "LectureNotes/Lecture4.html#all-simulated-time-series",
+    "title": "5  Lecture 4",
+    "section": "6.1 All Simulated Time Series",
+    "text": "6.1 All Simulated Time Series\n\n\nCode\ntsplot(all_series, spaghetti = TRUE, main = \"100 Simuated Trend Stationary Time Series\", type = \"b\")\nrect(xleft = 0.5, xright = 1.5, ybottom = -2, ytop = 4, border = \"blue\", lwd = 2)\nrect(xleft = 7.5, xright = 8.5, ybottom = -.5, ytop = 5, border = \"magenta\", lwd = 2)",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#marginal-and-joint-distributions-t8-and-s-1",
+    "href": "LectureNotes/Lecture4.html#marginal-and-joint-distributions-t8-and-s-1",
+    "title": "5  Lecture 4",
+    "section": "6.2 Marginal and Joint Distributions t=8 and s = 1",
+    "text": "6.2 Marginal and Joint Distributions t=8 and s = 1\n\n\nCode\ni = 1\nx_comp &lt;- all_series[i,]\nx_8_all &lt;- all_series[8,]\n\npar(mfrow = c(2,2))\nhist(x_comp, col = \"blue\", main = paste(\"Histogram of simulations at t=\", i), xlab = paste(\"x_\",i))\nhist(x_8_all, col = \"magenta\", main = paste(\"Histogram of simulations at t=8\"), xlab = \"x_8\")\nplot(x_comp, x_8_all, col = \"purple\", pch = 16, main = \"Joint Distribution\")\nabline(lm(x_8_all~x_comp))\nplot(1:10, rep(1, times = 10), pch = \"\", axes = F, xlab = \"\", ylab = \"\")\ntext(x = 5, y = 1, cex = 2, label = paste(\"rho(\", \"i\",\", 8) = \\n cor(x_\",i,\",x_8) = \\n \", round(cor(x_comp,x_8_all),3) ))",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#all-simulated-time-series-1",
+    "href": "LectureNotes/Lecture4.html#all-simulated-time-series-1",
+    "title": "5  Lecture 4",
+    "section": "6.3 All Simulated Time Series",
+    "text": "6.3 All Simulated Time Series\n\n\nCode\ntsplot(all_series, spaghetti = TRUE, main = \"100 Simuated Trend Stationary Time Series\", type = \"b\")\nrect(xleft = 1.5, xright = 2.5, ybottom = -2, ytop = 4, border = \"blue\", lwd = 2)\nrect(xleft = 7.5, xright = 8.5, ybottom = -.5, ytop = 5, border = \"magenta\", lwd = 2)",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#marginal-and-joint-distributions-t8-and-s-2",
+    "href": "LectureNotes/Lecture4.html#marginal-and-joint-distributions-t8-and-s-2",
+    "title": "5  Lecture 4",
+    "section": "6.4 Marginal and Joint Distributions t=8 and s = 2",
+    "text": "6.4 Marginal and Joint Distributions t=8 and s = 2\n\n\nCode\ni = 2\nx_comp &lt;- all_series[i,]\nx_8_all &lt;- all_series[8,]\n\npar(mfrow = c(2,2))\nhist(x_comp, col = \"blue\", main = paste(\"Histogram of simulations at t=\", i), xlab = paste(\"x_\",i))\nhist(x_8_all, col = \"magenta\", main = paste(\"Histogram of simulations at t=8\"), xlab = \"x_8\")\nplot(x_comp, x_8_all, col = \"purple\", pch = 16, main = \"Joint Distribution\")\nabline(lm(x_8_all~x_comp))\nplot(1:10, rep(1, times = 10), pch = \"\", axes = F, xlab = \"\", ylab = \"\")\ntext(x = 5, y = 1, cex = 2, label = paste(\"rho(\", \"i\",\", 8) = \\n cor(x_\",i,\",x_8) = \\n \", round(cor(x_comp,x_8_all),3) ))",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#all-simulated-time-series-2",
+    "href": "LectureNotes/Lecture4.html#all-simulated-time-series-2",
+    "title": "5  Lecture 4",
+    "section": "6.5 All Simulated Time Series",
+    "text": "6.5 All Simulated Time Series\n\n\nCode\ntsplot(all_series, spaghetti = TRUE, main = \"100 Simuated Trend Stationary Time Series\", type = \"b\")\nrect(xleft = 2.5, xright = 3.5, ybottom = -2, ytop = 4, border = \"blue\", lwd = 2)\nrect(xleft = 7.5, xright = 8.5, ybottom = -.5, ytop = 5, border = \"magenta\", lwd = 2)",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#marginal-and-joint-distributions-t8-and-s-3",
+    "href": "LectureNotes/Lecture4.html#marginal-and-joint-distributions-t8-and-s-3",
+    "title": "5  Lecture 4",
+    "section": "6.6 Marginal and Joint Distributions t=8 and s = 3",
+    "text": "6.6 Marginal and Joint Distributions t=8 and s = 3\n\n\nCode\ni = 3\nx_comp &lt;- all_series[i,]\nx_8_all &lt;- all_series[8,]\n\npar(mfrow = c(2,2))\nhist(x_comp, col = \"blue\", main = paste(\"Histogram of simulations at t=\", i), xlab = paste(\"x_\",i))\nhist(x_8_all, col = \"magenta\", main = paste(\"Histogram of simulations at t=8\"), xlab = \"x_8\")\nplot(x_comp, x_8_all, col = \"purple\", pch = 16, main = \"Joint Distribution\")\nabline(lm(x_8_all~x_comp))\nplot(1:10, rep(1, times = 10), pch = \"\", axes = F, xlab = \"\", ylab = \"\")\ntext(x = 5, y = 1, cex = 2, label = paste(\"rho(\", \"i\",\", 8) = \\n cor(x_\",i,\",x_8) = \\n \", round(cor(x_comp,x_8_all),3) ))",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#all-simulated-time-series-3",
+    "href": "LectureNotes/Lecture4.html#all-simulated-time-series-3",
+    "title": "5  Lecture 4",
+    "section": "6.7 All Simulated Time Series",
+    "text": "6.7 All Simulated Time Series\n\n\nCode\ntsplot(all_series, spaghetti = TRUE, main = \"100 Simuated Trend Stationary Time Series\", type = \"b\")\nrect(xleft = 3.5, xright = 4.5, ybottom = -2, ytop = 4, border = \"blue\", lwd = 2)\nrect(xleft = 7.5, xright = 8.5, ybottom = -.5, ytop = 5, border = \"magenta\", lwd = 2)",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#marginal-and-joint-distributions-t8-and-s-4",
+    "href": "LectureNotes/Lecture4.html#marginal-and-joint-distributions-t8-and-s-4",
+    "title": "5  Lecture 4",
+    "section": "6.8 Marginal and Joint Distributions t=8 and s = 4",
+    "text": "6.8 Marginal and Joint Distributions t=8 and s = 4\n\n\nCode\ni = 4\nx_comp &lt;- all_series[i,]\nx_8_all &lt;- all_series[8,]\n\npar(mfrow = c(2,2))\nhist(x_comp, col = \"blue\", main = paste(\"Histogram of simulations at t=\", i), xlab = paste(\"x_\",i))\nhist(x_8_all, col = \"magenta\", main = paste(\"Histogram of simulations at t=8\"), xlab = \"x_8\")\nplot(x_comp, x_8_all, col = \"purple\", pch = 16, main = \"Joint Distribution\")\nabline(lm(x_8_all~x_comp))\nplot(1:10, rep(1, times = 10), pch = \"\", axes = F, xlab = \"\", ylab = \"\")\ntext(x = 5, y = 1, cex = 2, label = paste(\"rho(\", \"i\",\", 8) = \\n cor(x_\",i,\",x_8) = \\n \", round(cor(x_comp,x_8_all),3) ))",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#all-simulated-time-series-4",
+    "href": "LectureNotes/Lecture4.html#all-simulated-time-series-4",
+    "title": "5  Lecture 4",
+    "section": "6.9 All Simulated Time Series",
+    "text": "6.9 All Simulated Time Series\n\n\nCode\ntsplot(all_series, spaghetti = TRUE, main = \"100 Simuated Trend Stationary Time Series\", type = \"b\")\nrect(xleft = 4.5, xright = 5.5, ybottom = -2, ytop = 4, border = \"blue\", lwd = 2)\nrect(xleft = 7.5, xright = 8.5, ybottom = -.5, ytop = 5, border = \"magenta\", lwd = 2)",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#marginal-and-joint-distributions-t8-and-s-5",
+    "href": "LectureNotes/Lecture4.html#marginal-and-joint-distributions-t8-and-s-5",
+    "title": "5  Lecture 4",
+    "section": "6.10 Marginal and Joint Distributions t=8 and s = 5",
+    "text": "6.10 Marginal and Joint Distributions t=8 and s = 5\n\n\nCode\ni = 5\nx_comp &lt;- all_series[i,]\nx_8_all &lt;- all_series[8,]\n\npar(mfrow = c(2,2))\nhist(x_comp, col = \"blue\", main = paste(\"Histogram of simulations at t=\", i), xlab = paste(\"x_\",i))\nhist(x_8_all, col = \"magenta\", main = paste(\"Histogram of simulations at t=8\"), xlab = \"x_8\")\nplot(x_comp, x_8_all, col = \"purple\", pch = 16, main = \"Joint Distribution\")\nabline(lm(x_8_all~x_comp))\nplot(1:10, rep(1, times = 10), pch = \"\", axes = F, xlab = \"\", ylab = \"\")\ntext(x = 5, y = 1, cex = 2, label = paste(\"rho(\", \"i\",\", 8) = \\n cor(x_\",i,\",x_8) = \\n \", round(cor(x_comp,x_8_all),3) ))",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#all-simulated-time-series-5",
+    "href": "LectureNotes/Lecture4.html#all-simulated-time-series-5",
+    "title": "5  Lecture 4",
+    "section": "6.11 All Simulated Time Series",
+    "text": "6.11 All Simulated Time Series\n\n\nCode\ntsplot(all_series, spaghetti = TRUE, main = \"100 Simuated Trend Stationary Time Series\", type = \"b\")\nrect(xleft = 5.5, xright = 6.5, ybottom = -2, ytop = 4, border = \"blue\", lwd = 2)\nrect(xleft = 7.5, xright = 8.5, ybottom = -.5, ytop = 5, border = \"magenta\", lwd = 2)",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#marginal-and-joint-distributions-t8-and-s-6",
+    "href": "LectureNotes/Lecture4.html#marginal-and-joint-distributions-t8-and-s-6",
+    "title": "5  Lecture 4",
+    "section": "6.12 Marginal and Joint Distributions t=8 and s = 6",
+    "text": "6.12 Marginal and Joint Distributions t=8 and s = 6\n\n\nCode\ni = 6\nx_comp &lt;- all_series[i,]\nx_8_all &lt;- all_series[8,]\n\npar(mfrow = c(2,2))\nhist(x_comp, col = \"blue\", main = paste(\"Histogram of simulations at t=\", i), xlab = paste(\"x_\",i))\nhist(x_8_all, col = \"magenta\", main = paste(\"Histogram of simulations at t=8\"), xlab = \"x_8\")\nplot(x_comp, x_8_all, col = \"purple\", pch = 16, main = \"Joint Distribution\")\nabline(lm(x_8_all~x_comp))\nplot(1:10, rep(1, times = 10), pch = \"\", axes = F, xlab = \"\", ylab = \"\")\ntext(x = 5, y = 1, cex = 2, label = paste(\"rho(\", \"i\",\", 8) = \\n cor(x_\",i,\",x_8) = \\n \", round(cor(x_comp,x_8_all),3) ))",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#all-simulated-time-series-6",
+    "href": "LectureNotes/Lecture4.html#all-simulated-time-series-6",
+    "title": "5  Lecture 4",
+    "section": "6.13 All Simulated Time Series",
+    "text": "6.13 All Simulated Time Series\n\n\nCode\ntsplot(all_series, spaghetti = TRUE, main = \"100 Simuated Trend Stationary Time Series\", type = \"b\")\nrect(xleft = 6.5, xright = 7.5, ybottom = -2, ytop = 4, border = \"blue\", lwd = 2)\nrect(xleft = 7.5, xright = 8.5, ybottom = -.5, ytop = 5, border = \"magenta\", lwd = 2)",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#marginal-and-joint-distributions-t8-and-s-7",
+    "href": "LectureNotes/Lecture4.html#marginal-and-joint-distributions-t8-and-s-7",
+    "title": "5  Lecture 4",
+    "section": "6.14 Marginal and Joint Distributions t=8 and s = 7",
+    "text": "6.14 Marginal and Joint Distributions t=8 and s = 7\n\n\nCode\ni = 7\nx_comp &lt;- all_series[i,]\nx_8_all &lt;- all_series[8,]\n\npar(mfrow = c(2,2))\nhist(x_comp, col = \"blue\", main = paste(\"Histogram of simulations at t=\", i), xlab = paste(\"x_\",i))\nhist(x_8_all, col = \"magenta\", main = paste(\"Histogram of simulations at t=8\"), xlab = \"x_8\")\nplot(x_comp, x_8_all, col = \"purple\", pch = 16, main = \"Joint Distribution\")\nabline(lm(x_8_all~x_comp))\nplot(1:10, rep(1, times = 10), pch = \"\", axes = F, xlab = \"\", ylab = \"\")\ntext(x = 5, y = 1, cex = 2, label = paste(\"rho(\", \"i\",\", 8) = \\n cor(x_\",i,\",x_8) = \\n \", round(cor(x_comp,x_8_all),3) ))",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#all-simulated-time-series-7",
+    "href": "LectureNotes/Lecture4.html#all-simulated-time-series-7",
+    "title": "5  Lecture 4",
+    "section": "6.15 All Simulated Time Series",
+    "text": "6.15 All Simulated Time Series\n\n\nCode\ntsplot(all_series, spaghetti = TRUE, main = \"100 Simuated Trend Stationary Time Series\", type = \"b\")\nrect(xleft = 7.3, xright = 8.3, ybottom = -.7, ytop = 5.2, border = \"blue\", lwd = 2)\nrect(xleft = 7.5, xright = 8.5, ybottom = -.5, ytop = 5, border = \"magenta\", lwd = 2)",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#marginal-and-joint-distributions-t8-and-s-8",
+    "href": "LectureNotes/Lecture4.html#marginal-and-joint-distributions-t8-and-s-8",
+    "title": "5  Lecture 4",
+    "section": "6.16 Marginal and Joint Distributions t=8 and s = 8",
+    "text": "6.16 Marginal and Joint Distributions t=8 and s = 8\n\n\nCode\ni = 8\nx_comp &lt;- all_series[i,]\nx_8_all &lt;- all_series[8,]\n\npar(mfrow = c(2,2))\nhist(x_comp, col = \"blue\", main = paste(\"Histogram of simulations at t=\", i), xlab = paste(\"x_\",i))\nhist(x_8_all, col = \"magenta\", main = paste(\"Histogram of simulations at t=8\"), xlab = \"x_8\")\nplot(x_comp, x_8_all, col = \"purple\", pch = 16, main = \"Joint Distribution\")\nabline(lm(x_8_all~x_comp))\nplot(1:10, rep(1, times = 10), pch = \"\", axes = F, xlab = \"\", ylab = \"\")\ntext(x = 5, y = 1, cex = 2, label = paste(\"rho(\", \"i\",\", 8) = \\n cor(x_\",i,\",x_8) = \\n \", round(cor(x_comp,x_8_all),3) ))",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#all-simulated-time-series-8",
+    "href": "LectureNotes/Lecture4.html#all-simulated-time-series-8",
+    "title": "5  Lecture 4",
+    "section": "6.17 All Simulated Time Series",
+    "text": "6.17 All Simulated Time Series\n\n\nCode\ntsplot(all_series, spaghetti = TRUE, main = \"100 Simuated Trend Stationary Time Series\", type = \"b\")\nrect(xleft = 8.5, xright = 9.5, ybottom = -1.5, ytop = 5, border = \"blue\", lwd = 2)\nrect(xleft = 7.5, xright = 8.5, ybottom = -.5, ytop = 5, border = \"magenta\", lwd = 2)",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#marginal-and-joint-distributions-t8-and-s-9",
+    "href": "LectureNotes/Lecture4.html#marginal-and-joint-distributions-t8-and-s-9",
+    "title": "5  Lecture 4",
+    "section": "6.18 Marginal and Joint Distributions t=8 and s = 9",
+    "text": "6.18 Marginal and Joint Distributions t=8 and s = 9\n\n\nCode\ni = 9\nx_comp &lt;- all_series[i,]\nx_8_all &lt;- all_series[8,]\n\npar(mfrow = c(2,2))\nhist(x_comp, col = \"blue\", main = paste(\"Histogram of simulations at t=\", i), xlab = paste(\"x_\",i))\nhist(x_8_all, col = \"magenta\", main = paste(\"Histogram of simulations at t=8\"), xlab = \"x_8\")\nplot(x_comp, x_8_all, col = \"purple\", pch = 16, main = \"Joint Distribution\")\nabline(lm(x_8_all~x_comp))\nplot(1:10, rep(1, times = 10), pch = \"\", axes = F, xlab = \"\", ylab = \"\")\ntext(x = 5, y = 1, cex = 2, label = paste(\"rho(\", \"i\",\", 8) = \\n cor(x_\",i,\",x_8) = \\n \", round(cor(x_comp,x_8_all),3) ))",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#all-simulated-time-series-9",
+    "href": "LectureNotes/Lecture4.html#all-simulated-time-series-9",
+    "title": "5  Lecture 4",
+    "section": "6.19 All Simulated Time Series",
+    "text": "6.19 All Simulated Time Series\n\n\nCode\ntsplot(all_series, spaghetti = TRUE, main = \"100 Simuated Trend Stationary Time Series\", type = \"b\")\nrect(xleft = 9.5, xright = 10.5, ybottom = 0, ytop = 5.5, border = \"blue\", lwd = 2)\nrect(xleft = 7.5, xright = 8.5, ybottom = -.5, ytop = 5, border = \"magenta\", lwd = 2)",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#marginal-and-joint-distributions-t8-and-s-10",
+    "href": "LectureNotes/Lecture4.html#marginal-and-joint-distributions-t8-and-s-10",
+    "title": "5  Lecture 4",
+    "section": "6.20 Marginal and Joint Distributions t=8 and s = 10",
+    "text": "6.20 Marginal and Joint Distributions t=8 and s = 10\n\n\nCode\ni = 10\nx_comp &lt;- all_series[i,]\nx_8_all &lt;- all_series[8,]\n\npar(mfrow = c(2,2))\nhist(x_comp, col = \"blue\", main = paste(\"Histogram of simulations at t=\", i), xlab = paste(\"x_\",i))\nhist(x_8_all, col = \"magenta\", main = paste(\"Histogram of simulations at t=8\"), xlab = \"x_8\")\nplot(x_comp, x_8_all, col = \"purple\", pch = 16, main = \"Joint Distribution\")\nabline(lm(x_8_all~x_comp))\nplot(1:10, rep(1, times = 10), pch = \"\", axes = F, xlab = \"\", ylab = \"\")\ntext(x = 5, y = 1, cex = 2, label = paste(\"gamma(\", \"i\",\", 8) = \\n cor(x_\",i,\",x_8) = \\n \", round(cor(x_comp,x_8_all),3) ))",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#visualizing-the-correlations",
+    "href": "LectureNotes/Lecture4.html#visualizing-the-correlations",
+    "title": "5  Lecture 4",
+    "section": "6.21 Visualizing the correlations",
+    "text": "6.21 Visualizing the correlations\n\n\nCode\ncors &lt;- apply(all_series, 1, function(x){cor(x, all_series[8,])})\nhist(cors, breaks = seq(-1, 1, by = .1), main = \"Correlation between simulations for x_8 and x_i\")",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#are-these-all-the-correlations",
+    "href": "LectureNotes/Lecture4.html#are-these-all-the-correlations",
+    "title": "5  Lecture 4",
+    "section": "6.22 Are these all the correlations?",
+    "text": "6.22 Are these all the correlations?\nNo, just pairwise with \\(x_8\\). We could do all possible pairs:\n\n\nCode\nlibrary(GGally)\n\n\nRegistered S3 method overwritten by 'GGally':\n  method from   \n  +.gg   ggplot2\n\n\nCode\nggpairs(data.frame(t(all_series)))",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#distribution-of-all-the-correlations",
+    "href": "LectureNotes/Lecture4.html#distribution-of-all-the-correlations",
+    "title": "5  Lecture 4",
+    "section": "6.23 Distribution of all the correlations:",
+    "text": "6.23 Distribution of all the correlations:\n\n\nCode\ncoords &lt;- t(combn(10,2))\ncors &lt;- NULL\nfor(i in 1:nrow(coords)){\n  cors &lt;- c(cors, cor(all_series[coords[i,1],], all_series[coords[i,2],]))\n}\ncors &lt;- c(cors, rep(1, times = 10))\nhist(cors, breaks = seq(-1, 1, by = .1), main = \"Correlation between simulations for x_s and x_t\")",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#d-version-of-histogram-includes-s-t-plane",
+    "href": "LectureNotes/Lecture4.html#d-version-of-histogram-includes-s-t-plane",
+    "title": "5  Lecture 4",
+    "section": "7.1 3D version of histogram (includes \\(s-t\\) plane)",
+    "text": "7.1 3D version of histogram (includes \\(s-t\\) plane)\n\n\nCode\ncoords &lt;- expand.grid(1:Time, 1:Time)\nnames(coords) &lt;- c(\"s\", \"t\") \ncoords$cor &lt;- NA\ncoords$pval &lt;- NA\ncor_mat_theoretical &lt;- cor_mat &lt;- matrix(rep(NA, times = Time*Time), nrow = Time)\nfor(i in 1:nrow(coords)){\n  out &lt;- cor.test((all_series[coords[i,1],]), (all_series[coords[i,2],]))\n  if(coords[i,1]==coords[i,2]){\n    coords$cor[i] &lt;- 1\n    coords$pval[i] &lt;- 0\n    cor_mat[coords[i,1], coords[i,2]] &lt;- 1\n    cor_mat_theoretical[coords[i,1], coords[i,2]] &lt;- 1\n  }else{\n    coords$cor[i] &lt;- out$estimate\n    coords$pval[i] &lt;- out$p.value\n    cor_mat[coords[i,1], coords[i,2]] &lt;- out$estimate\n    cor_mat_theoretical[coords[i,1], coords[i,2]] &lt;- 0\n    \n  }\n}\n\nlibrary(plotly)\n\n\n\nAttaching package: 'plotly'\n\n\nThe following object is masked from 'package:ggplot2':\n\n    last_plot\n\n\nThe following object is masked from 'package:stats':\n\n    filter\n\n\nThe following object is masked from 'package:graphics':\n\n    layout\n\n\nCode\nplot_ly(coords,\n        x= ~s, y=~t, z=~cor, \n        type = 'scatter3d', mode = \"markers\", size = .1)",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#simulated-auto-correlation-function-hatgamma_xh-with-a-blanket",
+    "href": "LectureNotes/Lecture4.html#simulated-auto-correlation-function-hatgamma_xh-with-a-blanket",
+    "title": "5  Lecture 4",
+    "section": "7.2 Simulated auto correlation function \\(\\hat{\\gamma}_x(h)\\) (with a blanket)",
+    "text": "7.2 Simulated auto correlation function \\(\\hat{\\gamma}_x(h)\\) (with a blanket)\n\n\nCode\n## \"drape a blanket over it to see the pattern better\"\nfig &lt;- plot_ly(z = ~cor_mat)\nfig %&gt;% add_surface()",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#theoretical-hatgamma_xh-using-the-derived-formula-with-a-blanket",
+    "href": "LectureNotes/Lecture4.html#theoretical-hatgamma_xh-using-the-derived-formula-with-a-blanket",
+    "title": "5  Lecture 4",
+    "section": "7.3 Theoretical \\(\\hat{\\gamma}_x(h)\\) (using the derived formula (with a blanket)",
+    "text": "7.3 Theoretical \\(\\hat{\\gamma}_x(h)\\) (using the derived formula (with a blanket)\n\n\nCode\n# Theoretical function\nfig &lt;- plot_ly(z = ~cor_mat_theoretical)\nfig %&gt;% add_surface()",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#detrending-1",
+    "href": "LectureNotes/Lecture4.html#detrending-1",
+    "title": "5  Lecture 4",
+    "section": "8.1 Detrending",
+    "text": "8.1 Detrending\nIf a process is trend stationary (nonstationary in the mean, but stationary in the variance), can we just subtract off the trend and get back a stationary time series?\nYes, and that’s called detrending",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#activity-3-detrending-a-commodity-example-3.7",
+    "href": "LectureNotes/Lecture4.html#activity-3-detrending-a-commodity-example-3.7",
+    "title": "5  Lecture 4",
+    "section": "8.2 Activity 3: Detrending a commodity (Example 3.7)",
+    "text": "8.2 Activity 3: Detrending a commodity (Example 3.7)\n\nGiven the code to generate the plot with the trend line, how would you view the equation of the trend line?\nVisualize the de-trended series\nCompute the acf of the salmon series and the detrended series. What do you notice?",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "LectureNotes/Lecture4.html#next-time",
+    "href": "LectureNotes/Lecture4.html#next-time",
+    "title": "5  Lecture 4",
+    "section": "8.3 Next time",
+    "text": "8.3 Next time\n\nCross-correlation and regression with multiple time series (\\(x_t\\) on x-axis instead of \\(t\\) on x-axis like with the salmon)\nActivities and examples\nSmoothing",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lecture 4</span>"
+    ]
+  },
+  {
+    "objectID": "Assignments/Assignment2.html",
+    "href": "Assignments/Assignment2.html",
+    "title": "6  Assignment 2 Due 10/7 at Midnight",
+    "section": "",
+    "text": "6.1 Part 1: Math\nIn class, we have worked with “Signal plus noise Model” (equation 1.5)\n\\[\n\\begin{aligned}\n\\text{Model: }& x_t = 2\\cos(2\\pi\\frac{t+15}{50}) + w_t\\\\\n\\text{Mean function: }& \\mathbb{E}(x_t) = 2\\cos(2\\pi\\frac{t+15}{50})\n\\end{aligned}\n\\]",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Assignment 2</span>"
+    ]
+  },
+  {
+    "objectID": "Assignments/Assignment2.html#part-1-math",
+    "href": "Assignments/Assignment2.html#part-1-math",
+    "title": "6  Assignment 2 Due 10/7 at Midnight",
+    "section": "",
+    "text": "[5 points] The mean function is derived in Example 2.4. Describe what happens in each step of the computation [3 points], and provide a “math stress” rating (1 = effortless, 100 = nightmare) and 3 emojis[2 points]. This is personal and there is no right answer.\n[5 points] Is the signal plus noise model stationary in the mean?\n[5 points] Write down \\(\\gamma_x(s,t)\\), the autocovariance function of \\(x_t\\) [3 points]. You may accomplish this in any way, including asking me personally in office hours or asking a classmate. Just make sure you cite the source![2 points]\n[6 points] Consider the model:\n\\[\ny_t = x_t - 2\\cos(2\\pi\\frac{t+15}{50})\n\\]\nCompute the mean function of \\(y_t\\) [3 points]. Is \\(y_t\\) stationary in the mean?[1 point] How do you know?[2 points]",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Assignment 2</span>"
+    ]
+  },
+  {
+    "objectID": "Assignments/Assignment2.html#part-2-code",
+    "href": "Assignments/Assignment2.html#part-2-code",
+    "title": "6  Assignment 2 Due 10/7 at Midnight",
+    "section": "6.2 Part 2: Code",
+    "text": "6.2 Part 2: Code\nNote: I have set the code chunks here to have eval: false in the code chunk. Change that to true so that I can run your code easily.\n\n[5 points] All your code runs without errors (unless that’s the point), and if there is a message, explain what it means.\n[5 points] Simulate from an AR(1) process with coefficient 0.7 and 10 data points.\n\n\nlibrary(astsa)\n\n# your code here\n\n\n[6 points] Look at the documentation for the stats::lag function (run ?lag in the console). State what package the function is in and what the function does[4 points]. Using k = 1 compute a lag(1) version of x_t that you simulated above[2 points].\n\n\nx_t_lag1 &lt;- # your code here\n\n\n[3 points] Run the following code and compare x_t and x_t_lag1.\n\n\ncbind(x_t, x_t_lag1)\n\n\nMake a time series plot of x_t and x_t_1. Do you notice the same features as when in the previous question?\n\n\n# your code here\n\n\nRun the below code. Why are the plots different? Are either particularly useful?\n\n\nplot(x_t, x_t_lag1)\nplot(as.vector(x_t), as.vector(x_t_lag1))\n\n\nInstead of using stats::lag, use dplyr::lag to create a new version of x_t_lag. Repeat the code from steps 2-5. Describe how the output has changed.\n\n\nx_t_lag1 &lt;- dplyr::lag(# your code here)\n\n\nFit an intercept-free regression model between x_t and x_t_lag. Provide the value of the slope estimate and interpret the value in the context of this simulation.\n\n\nlinear_model &lt;- # your code here\n\n\n[11 points] Plot the acf of x_t[2 points] and the acf of the residuals from the regression model[4 points]. Which looks more like white noise?[2 points] What does this tell you about the temporal structure in x_t and its residuals?[3 points]\n\n\n# your code here",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Assignment 2</span>"
+    ]
+  },
+  {
+    "objectID": "Assignments/Assignment2.html#part-3-reading",
+    "href": "Assignments/Assignment2.html#part-3-reading",
+    "title": "6  Assignment 2 Due 10/7 at Midnight",
+    "section": "6.3 Part 3: Reading",
+    "text": "6.3 Part 3: Reading\n[9 points] Read sections 2.8 and 2.9 from Forecasting Principles and Practice. Make 3 connections [3 points each] to content from the course textbook (equations or similar examples.).",
+    "crumbs": [
+      "Week2",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Assignment 2</span>"
     ]
   }
 ]
