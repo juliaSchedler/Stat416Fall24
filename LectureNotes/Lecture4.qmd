@@ -24,12 +24,16 @@ $$
 - Finish up activities from Lecture 3
 - Trend stationarity
 - Visualizing autocovariance (third attempt)
+- Detrending
 - "Office hours"
 
 ## Reminders
 - Syllabus participation policy
-- Late quizzes
-- Exam details
+- Assignments: Going forward, must submit **rendered pdf**
+- Late quizzes: Going forward: Email me ahead of time, otherwise it's a 0 
+- Exam details: No use of computer, code will be covered but basic, notes sheet is allowed, practice test will be provided
+
+
 
 ## [Activity 1: Export Price of Salmon (Example 3.1)]{.r-fit-text}{.smaller}
 
