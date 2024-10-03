@@ -2,25 +2,12 @@ project:
   type: book
 
 book:
-  title: "Stat 416 Statistical Analysis of Time Series"
+  title: "ACCESS STAT 416 MATERIALS AT THE LINK BELOW"
   author: "Julia Schedler"
   date: "9/23/2024"
   chapters:
     - index.qmd
-    - part: Week1.qmd
-      chapters: 
-        - LectureNotes/Lecture1.qmd
-        - LectureNotes/Lecture2.qmd
-        - href: Assignments/Assignment1.qmd
-          text: Assignment 1
-    - part: Week2
-      chapters:
-        - LectureNotes/Lecture3.qmd
-        - LectureNotes/Lecture4.qmd
-        - href: Assignments/Assignment2.qmd
-          text: Assignment 2
-
-bibliography: references.bib
+    
 
 format:
   html:
