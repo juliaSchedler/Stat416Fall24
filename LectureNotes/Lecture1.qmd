@@ -168,7 +168,7 @@ legend("topleft", col=c(2,4), lty=1, lwd=2, pch=20,  bg="white",
 
 library(xts)     # install.packages("xts") if you don't have it already 
 djia_return = diff(log(djia$Close))[-1]
-#par(mfrow=2:1)
+par(mfrow=2:1)
 plot(djia$Close, col=4)
 plot(djia_return, col=4)
 
@@ -207,13 +207,13 @@ legend("topright", col=c(2,4), lty=1, lwd=2, pch=c(0,2), legend=c("Hare", "Lynx"
 
 ```
 
-### Cute animal pictures
+## Cute animal pictures
 
-![](https://as2.ftcdn.net/v2/jpg/02/37/30/63/1000_F_237306331_HH4H6l5zlI8nh2eaWNY2oZuH28MX6OsE.jpg)
+![](Lecture%201/hare1.jpg)
 
-![](https://www.bccdpa.com/uploads/1/2/9/3/129338736/20191230-img-hare_orig.jpg)
+![](Lecture%201/hare2.jpeg)
 
-![](http://cougarbiology.pbworks.com/f/1242667966/1242667966/lynx.jpg)
+![](Lecture%201/lynx1.jpg)
 
 ## Example 1.6 fMRI Imaging
 
@@ -283,7 +283,7 @@ Which example does this bear the most resemblance to?
 #| label: white-noise
 
 w <- rnorm(500, 0, 1)
-plot(w, type = "p", col = "blue", xlab = "t (order of sampling)")
+plot(w, type = "l", col = "blue", xlab = "t (order of sampling)")
 ```
 
 ## What White Noise *isn't*

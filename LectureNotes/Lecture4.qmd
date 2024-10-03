@@ -1,12 +1,25 @@
 ---
 title: "Lecture 4"
 author: Julia Schedler
-format: html
+format: 
+  html: 
+    code-fold: show
 slide-number: true
 scrollable: true
 filters: 
   - timer
 ---
+
+::: {.callout-note collapse="true" appearance="simple" icon="false"}
+## Slides with Activity Solutions
+
+[View slides in full screen](Slides/Lecture4/){target="_blank"}
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon="false"}
+## Link to Notes Template
+[Lecture4Template.qmd](ActivityTemplates/Lecture4Template.qmd)
+:::
 
 ## Recap
 
@@ -21,21 +34,21 @@ $$
 -   Some activities
 
 ## Today
-- Finish up activities from Lecture 3
-- Trend stationarity
-- Visualizing autocovariance (third attempt)
-- Detrending
-- "Office hours"
+
+-   Finish up activities from Lecture 3
+-   Trend stationarity
+-   Visualizing autocovariance (third attempt)
+-   Detrending
+-   "Office hours"
 
 ## Reminders
-- Syllabus participation policy
-- Assignments: Going forward, must submit **rendered pdf** of code portion. (if you want to be nice to me, do this for Assignment 2, but starts with Assignment 3)
-- Late quizzes: Going forward: Email me ahead of time, otherwise it's a 0 
-- Exam details: No use of computer, code will be covered but basic, notes sheet is allowed, practice test will be provided
 
+-   Syllabus participation policy
+-   Assignments: Going forward, must submit **rendered pdf** of code portion. (if you want to be nice to me, do this for Assignment 2, but starts with Assignment 3)
+-   Late quizzes: Going forward: Email me ahead of time, otherwise it's a 0
+-   Exam details: No use of computer, code will be covered but basic, notes sheet is allowed, practice test will be provided
 
-
-## [Activity 1: Export Price of Salmon (Example 3.1)]{.r-fit-text}{.smaller}
+## [Activity 1: Export Price of Salmon (Example 3.1)]{.r-fit-text} {.smaller}
 
 ```{r}
 #| label: activity-1
@@ -50,7 +63,8 @@ abline(fit)
 
 ```
 
-## [Activity 1: Export Price of Salmon (Example 3.1)]{.r-fit-text}{.smaller}
+## [Activity 1: Export Price of Salmon (Example 3.1)]{.r-fit-text} {.smaller}
+
 1.  Does this time series appear stationary?
 
 2.  The (mathematical) equation in the book for the trend line above is:
@@ -65,20 +79,23 @@ abline(fit)
 
 3.  Interpret the estimate of the slope.
 
-## [Activity 2: Trend Stationarity (Example 2.19)]{.r-fit-text}{.smaller}
-Consider the time series model
-$$x_t = \beta t + y_t$$
-Assume $y_t$ is stationary with mean function $\mu_y$ and and autocovariance function $\gamma_y(h)$
+## [Activity 2: Trend Stationarity (Example 2.19)]{.r-fit-text} {.smaller}
 
-- Compare this equation to the regression equation in the last example.
-- What are the mean function and autocovariance function of $x_t$?
+Consider the time series model $$x_t = \beta t + y_t$$ Assume $y_t$ is stationary with mean function $\mu_y$ and and autocovariance function $\gamma_y(h)$
+
+-   Compare this equation to the regression equation in the last example.
+-   What are the mean function and autocovariance function of $x_t$?
 
 ## Trend stationarity model
+
 A time series which is nonstationary in the mean but is stationary in the autocovariance is sometimes called **Trend stationarity**.
 
-- I'm actually not sure if it just refers to linear trends?? I'll ask people at my conference
+-   I'm actually not sure if it just refers to linear trends?? I'll ask people at my conference
+
+# Visualizing (possibly nonstationary) Autocorrelation functions
 
 ## Visualizing the autocovariance for trend stationarity
+
 ```{r}
 #| label: show-error-dists
 #| code-fold: true
@@ -129,9 +146,12 @@ ggplot(df, aes(t, x_t)) +
   #geom_polygon(data = curves, aes(y = scales::oob_squish(y, c(0, Inf)),group = grp))
 ```
 
-## [Simulate many time series from the trend stationarity model]{.r-fit-text}{.smaller}
+## [Simulate many time series from the trend stationarity model]{.r-fit-text} {.smaller}
+
 ```{r}
 #| code-fold: true
+
+set.seed(807)
 Time <- 10
 n_sim <- 100
 all_series = matrix(rep(NA, times = n_sim*Time), nrow = Time)
@@ -150,7 +170,8 @@ abline(fit)
 
 ```
 
-## [Simulate many time series from the trend stationarity model]{.r-fit-text}{.smaller}
+## [Simulate many time series from the trend stationarity model]{.r-fit-text} {.smaller}
+
 ```{r}
 #| code-fold: true
 par(mfrow = c(2,2))
@@ -161,7 +182,9 @@ for(i in 1:4){
 
 }
 ```
-## [Simulate many time series from the trend stationarity model]{.r-fit-text}{.smaller}
+
+## [Simulate many time series from the trend stationarity model]{.r-fit-text} {.smaller}
+
 ```{r}
 #| label: trend-stationarity-simulate
 #| echo: true
@@ -174,13 +197,8 @@ rect(xleft = 7.5, xright = 8.5, ybottom = -.5, ytop = 5, border = "magenta", lwd
 
 ```
 
+## [Marginal and Joint Distributions t=8 and s=2]{.r-fit-text} {.smaller}
 
-
-
-
-
-
-## [Marginal and Joint Distributions t=8 and s=2]{.r-fit-text}{.smaller}
 ```{r}
 #| code-fold: true
 i = 2
@@ -196,6 +214,7 @@ abline(lm(x_8~x_comp))
 ```
 
 ## Marginal and Joint Distributions
+
 ```{r}
 #| code-fold: true
 library(ggplot2)
@@ -211,260 +230,13 @@ ggMarginal(p, type = "density", adjust = 2,
            xparams = list(col = "blue", fill = "blue"),
            yparams = list(col = "magenta", fill = "magenta"))
 ```
-# Simulations
 
-## All Simulated Time Series
-```{r}
-#| code-fold: true
-tsplot(all_series, spaghetti = TRUE, main = "100 Simuated Trend Stationary Time Series", type = "b")
-rect(xleft = 0.5, xright = 1.5, ybottom = -2, ytop = 4, border = "blue", lwd = 2)
-rect(xleft = 7.5, xright = 8.5, ybottom = -.5, ytop = 5, border = "magenta", lwd = 2)
+## Do this for all possible combos of $s$ and $t$
 
-```
-
-## [Marginal and Joint Distributions t=8 and s = 1]{.r-fit-text}{.smaller}
-```{r}
-#| code-fold: true
-i = 1
-x_comp <- all_series[i,]
-x_8_all <- all_series[8,]
-
-par(mfrow = c(2,2))
-hist(x_comp, col = "blue", main = paste("Histogram of simulations at t=", i), xlab = paste("x_",i))
-hist(x_8_all, col = "magenta", main = paste("Histogram of simulations at t=8"), xlab = "x_8")
-plot(x_comp, x_8_all, col = "purple", pch = 16, main = "Joint Distribution")
-abline(lm(x_8_all~x_comp))
-plot(1:10, rep(1, times = 10), pch = "", axes = F, xlab = "", ylab = "")
-text(x = 5, y = 1, cex = 2, label = paste("rho(", "i",", 8) = \n cor(x_",i,",x_8) = \n ", round(cor(x_comp,x_8_all),3) ))
-
-```
-
-## All Simulated Time Series
-```{r}
-#| code-fold: true
-tsplot(all_series, spaghetti = TRUE, main = "100 Simuated Trend Stationary Time Series", type = "b")
-rect(xleft = 1.5, xright = 2.5, ybottom = -2, ytop = 4, border = "blue", lwd = 2)
-rect(xleft = 7.5, xright = 8.5, ybottom = -.5, ytop = 5, border = "magenta", lwd = 2)
-
-```
-
-## [Marginal and Joint Distributions t=8 and s = 2]{.r-fit-text}{.smaller}
-```{r}
-#| code-fold: true
-i = 2
-x_comp <- all_series[i,]
-x_8_all <- all_series[8,]
-
-par(mfrow = c(2,2))
-hist(x_comp, col = "blue", main = paste("Histogram of simulations at t=", i), xlab = paste("x_",i))
-hist(x_8_all, col = "magenta", main = paste("Histogram of simulations at t=8"), xlab = "x_8")
-plot(x_comp, x_8_all, col = "purple", pch = 16, main = "Joint Distribution")
-abline(lm(x_8_all~x_comp))
-plot(1:10, rep(1, times = 10), pch = "", axes = F, xlab = "", ylab = "")
-text(x = 5, y = 1, cex = 2, label = paste("rho(", "i",", 8) = \n cor(x_",i,",x_8) = \n ", round(cor(x_comp,x_8_all),3) ))
-```
-
-## All Simulated Time Series
-```{r}
-#| code-fold: true
-tsplot(all_series, spaghetti = TRUE, main = "100 Simuated Trend Stationary Time Series", type = "b")
-rect(xleft = 2.5, xright = 3.5, ybottom = -2, ytop = 4, border = "blue", lwd = 2)
-rect(xleft = 7.5, xright = 8.5, ybottom = -.5, ytop = 5, border = "magenta", lwd = 2)
-
-```
-
-## [Marginal and Joint Distributions t=8 and s = 3]{.r-fit-text}{.smaller}
-```{r}
-#| code-fold: true
-i = 3
-x_comp <- all_series[i,]
-x_8_all <- all_series[8,]
-
-par(mfrow = c(2,2))
-hist(x_comp, col = "blue", main = paste("Histogram of simulations at t=", i), xlab = paste("x_",i))
-hist(x_8_all, col = "magenta", main = paste("Histogram of simulations at t=8"), xlab = "x_8")
-plot(x_comp, x_8_all, col = "purple", pch = 16, main = "Joint Distribution")
-abline(lm(x_8_all~x_comp))
-plot(1:10, rep(1, times = 10), pch = "", axes = F, xlab = "", ylab = "")
-text(x = 5, y = 1, cex = 2, label = paste("rho(", "i",", 8) = \n cor(x_",i,",x_8) = \n ", round(cor(x_comp,x_8_all),3) ))
-```
-
-## All Simulated Time Series
-```{r}
-#| code-fold: true
-tsplot(all_series, spaghetti = TRUE, main = "100 Simuated Trend Stationary Time Series", type = "b")
-rect(xleft = 3.5, xright = 4.5, ybottom = -2, ytop = 4, border = "blue", lwd = 2)
-rect(xleft = 7.5, xright = 8.5, ybottom = -.5, ytop = 5, border = "magenta", lwd = 2)
-
-```
-
-## [Marginal and Joint Distributions t=8 and s = 4]{.r-fit-text}{.smaller}
-```{r}
-#| code-fold: true
-i = 4
-x_comp <- all_series[i,]
-x_8_all <- all_series[8,]
-
-par(mfrow = c(2,2))
-hist(x_comp, col = "blue", main = paste("Histogram of simulations at t=", i), xlab = paste("x_",i))
-hist(x_8_all, col = "magenta", main = paste("Histogram of simulations at t=8"), xlab = "x_8")
-plot(x_comp, x_8_all, col = "purple", pch = 16, main = "Joint Distribution")
-abline(lm(x_8_all~x_comp))
-plot(1:10, rep(1, times = 10), pch = "", axes = F, xlab = "", ylab = "")
-text(x = 5, y = 1, cex = 2, label = paste("rho(", "i",", 8) = \n cor(x_",i,",x_8) = \n ", round(cor(x_comp,x_8_all),3) ))
-```
-
-## All Simulated Time Series
-```{r}
-#| code-fold: true
-tsplot(all_series, spaghetti = TRUE, main = "100 Simuated Trend Stationary Time Series", type = "b")
-rect(xleft = 4.5, xright = 5.5, ybottom = -2, ytop = 4, border = "blue", lwd = 2)
-rect(xleft = 7.5, xright = 8.5, ybottom = -.5, ytop = 5, border = "magenta", lwd = 2)
-
-```
-
-## [Marginal and Joint Distributions t=8 and s = 5]{.r-fit-text}{.smaller}
-```{r}
-#| code-fold: true
-i = 5
-x_comp <- all_series[i,]
-x_8_all <- all_series[8,]
-
-par(mfrow = c(2,2))
-hist(x_comp, col = "blue", main = paste("Histogram of simulations at t=", i), xlab = paste("x_",i))
-hist(x_8_all, col = "magenta", main = paste("Histogram of simulations at t=8"), xlab = "x_8")
-plot(x_comp, x_8_all, col = "purple", pch = 16, main = "Joint Distribution")
-abline(lm(x_8_all~x_comp))
-plot(1:10, rep(1, times = 10), pch = "", axes = F, xlab = "", ylab = "")
-text(x = 5, y = 1, cex = 2, label = paste("rho(", "i",", 8) = \n cor(x_",i,",x_8) = \n ", round(cor(x_comp,x_8_all),3) ))
-```
-
-## All Simulated Time Series
-```{r}
-#| code-fold: true
-tsplot(all_series, spaghetti = TRUE, main = "100 Simuated Trend Stationary Time Series", type = "b")
-rect(xleft = 5.5, xright = 6.5, ybottom = -2, ytop = 4, border = "blue", lwd = 2)
-rect(xleft = 7.5, xright = 8.5, ybottom = -.5, ytop = 5, border = "magenta", lwd = 2)
-
-```
-
-## [Marginal and Joint Distributions t=8 and s = 6]{.r-fit-text}{.smaller}
-```{r}
-#| code-fold: true
-i = 6
-x_comp <- all_series[i,]
-x_8_all <- all_series[8,]
-
-par(mfrow = c(2,2))
-hist(x_comp, col = "blue", main = paste("Histogram of simulations at t=", i), xlab = paste("x_",i))
-hist(x_8_all, col = "magenta", main = paste("Histogram of simulations at t=8"), xlab = "x_8")
-plot(x_comp, x_8_all, col = "purple", pch = 16, main = "Joint Distribution")
-abline(lm(x_8_all~x_comp))
-plot(1:10, rep(1, times = 10), pch = "", axes = F, xlab = "", ylab = "")
-text(x = 5, y = 1, cex = 2, label = paste("rho(", "i",", 8) = \n cor(x_",i,",x_8) = \n ", round(cor(x_comp,x_8_all),3) ))
-```
-
-## All Simulated Time Series
-```{r}
-#| code-fold: true
-tsplot(all_series, spaghetti = TRUE, main = "100 Simuated Trend Stationary Time Series", type = "b")
-rect(xleft = 6.5, xright = 7.5, ybottom = -2, ytop = 4, border = "blue", lwd = 2)
-rect(xleft = 7.5, xright = 8.5, ybottom = -.5, ytop = 5, border = "magenta", lwd = 2)
-
-```
-
-## [Marginal and Joint Distributions t=8 and s = 7]{.r-fit-text}{.smaller}
-```{r}
-#| code-fold: true
-i = 7
-x_comp <- all_series[i,]
-x_8_all <- all_series[8,]
-
-par(mfrow = c(2,2))
-hist(x_comp, col = "blue", main = paste("Histogram of simulations at t=", i), xlab = paste("x_",i))
-hist(x_8_all, col = "magenta", main = paste("Histogram of simulations at t=8"), xlab = "x_8")
-plot(x_comp, x_8_all, col = "purple", pch = 16, main = "Joint Distribution")
-abline(lm(x_8_all~x_comp))
-plot(1:10, rep(1, times = 10), pch = "", axes = F, xlab = "", ylab = "")
-text(x = 5, y = 1, cex = 2, label = paste("rho(", "i",", 8) = \n cor(x_",i,",x_8) = \n ", round(cor(x_comp,x_8_all),3) ))
-```
-
-## All Simulated Time Series
-```{r}
-#| code-fold: true
-tsplot(all_series, spaghetti = TRUE, main = "100 Simuated Trend Stationary Time Series", type = "b")
-rect(xleft = 7.3, xright = 8.3, ybottom = -.7, ytop = 5.2, border = "blue", lwd = 2)
-rect(xleft = 7.5, xright = 8.5, ybottom = -.5, ytop = 5, border = "magenta", lwd = 2)
-
-```
-
-## [Marginal and Joint Distributions t=8 and s = 8]{.r-fit-text}{.smaller}
-```{r}
-#| code-fold: true
-i = 8
-x_comp <- all_series[i,]
-x_8_all <- all_series[8,]
-
-par(mfrow = c(2,2))
-hist(x_comp, col = "blue", main = paste("Histogram of simulations at t=", i), xlab = paste("x_",i))
-hist(x_8_all, col = "magenta", main = paste("Histogram of simulations at t=8"), xlab = "x_8")
-plot(x_comp, x_8_all, col = "purple", pch = 16, main = "Joint Distribution")
-abline(lm(x_8_all~x_comp))
-plot(1:10, rep(1, times = 10), pch = "", axes = F, xlab = "", ylab = "")
-text(x = 5, y = 1, cex = 2, label = paste("rho(", "i",", 8) = \n cor(x_",i,",x_8) = \n ", round(cor(x_comp,x_8_all),3) ))
-```
-
-## All Simulated Time Series
-```{r}
-#| code-fold: true
-tsplot(all_series, spaghetti = TRUE, main = "100 Simuated Trend Stationary Time Series", type = "b")
-rect(xleft = 8.5, xright = 9.5, ybottom = -1.5, ytop = 5, border = "blue", lwd = 2)
-rect(xleft = 7.5, xright = 8.5, ybottom = -.5, ytop = 5, border = "magenta", lwd = 2)
-
-```
-
-## [Marginal and Joint Distributions t=8 and s = 9]{.r-fit-text}{.smaller}
-```{r}
-#| code-fold: true
-i = 9
-x_comp <- all_series[i,]
-x_8_all <- all_series[8,]
-
-par(mfrow = c(2,2))
-hist(x_comp, col = "blue", main = paste("Histogram of simulations at t=", i), xlab = paste("x_",i))
-hist(x_8_all, col = "magenta", main = paste("Histogram of simulations at t=8"), xlab = "x_8")
-plot(x_comp, x_8_all, col = "purple", pch = 16, main = "Joint Distribution")
-abline(lm(x_8_all~x_comp))
-plot(1:10, rep(1, times = 10), pch = "", axes = F, xlab = "", ylab = "")
-text(x = 5, y = 1, cex = 2, label = paste("rho(", "i",", 8) = \n cor(x_",i,",x_8) = \n ", round(cor(x_comp,x_8_all),3) ))
-```
-
-## All Simulated Time Series
-```{r}
-#| code-fold: true
-tsplot(all_series, spaghetti = TRUE, main = "100 Simuated Trend Stationary Time Series", type = "b")
-rect(xleft = 9.5, xright = 10.5, ybottom = 0, ytop = 5.5, border = "blue", lwd = 2)
-rect(xleft = 7.5, xright = 8.5, ybottom = -.5, ytop = 5, border = "magenta", lwd = 2)
-
-```
-
-## [Marginal and Joint Distributions t=8 and s = 10]{.r-fit-text}{.smaller}
-```{r}
-#| code-fold: true
-i = 10
-x_comp <- all_series[i,]
-x_8_all <- all_series[8,]
-
-par(mfrow = c(2,2))
-hist(x_comp, col = "blue", main = paste("Histogram of simulations at t=", i), xlab = paste("x_",i))
-hist(x_8_all, col = "magenta", main = paste("Histogram of simulations at t=8"), xlab = "x_8")
-plot(x_comp, x_8_all, col = "purple", pch = 16, main = "Joint Distribution")
-abline(lm(x_8_all~x_comp))
-plot(1:10, rep(1, times = 10), pch = "", axes = F, xlab = "", ylab = "")
-text(x = 5, y = 1, cex = 2, label = paste("gamma(", "i",", 8) = \n cor(x_",i,",x_8) = \n ", round(cor(x_comp,x_8_all),3) ))
-```
+[View slides in full screen](Slides/SimulateAutocov/){target="_blank"}
 
 ## Visualizing the correlations
+
 ```{r}
 #| code-fold: true
 cors <- apply(all_series, 1, function(x){cor(x, all_series[8,])})
@@ -472,13 +244,17 @@ hist(cors, breaks = seq(-1, 1, by = .1), main = "Correlation between simulations
 ```
 
 ## Are these all the correlations?
+
 No, just pairwise with $x_8$. We could do all possible pairs:
+
 ```{r}
 #| code-fold: true
 library(GGally)
 ggpairs(data.frame(t(all_series)))
 ```
+
 ## Distribution of all the correlations:
+
 ```{r}
 #| code-fold: true
 coords <- t(combn(10,2))
@@ -489,9 +265,11 @@ for(i in 1:nrow(coords)){
 cors <- c(cors, rep(1, times = 10))
 hist(cors, breaks = seq(-1, 1, by = .1), main = "Correlation between simulations for x_s and x_t")
 ```
+
 # 3D plots
 
 ## 3D version of histogram (includes $s-t$ plane)
+
 ```{r}
 #| code-fold: true
 coords <- expand.grid(1:Time, 1:Time)
@@ -522,13 +300,16 @@ plot_ly(coords,
 ```
 
 ## [Simulated auto correlation function $\hat{\gamma}_x(h)$ (with a blanket)]{.r-fit-text}
+
 ```{r}
 #| code-fold: true
 ## "drape a blanket over it to see the pattern better"
 fig <- plot_ly(z = ~cor_mat)
 fig %>% add_surface()
 ```
+
 ## [Theoretical $\hat{\gamma}_x(h)$ (using the derived formula (with a blanket)]{.r-fit-text}
+
 ```{r}
 #| code-fold: true
 # Theoretical function
@@ -540,16 +321,19 @@ fig %>% add_surface()
 # Detrending
 
 ## Detrending
+
 If a process is trend stationary (nonstationary in the mean, but stationary in the variance), can we just subtract off the trend and get back a stationary time series?
 
 Yes, and that's called **detrending**
 
-## [Activity 3: Detrending a commodity (Example 3.7)]{.r-fit-text}{.smaller}
-- Given the code to generate the plot with the trend line, how would you view the equation of the trend line?
-- Visualize the de-trended series
-- Compute the acf of the salmon series and the detrended series. What do you notice?
+## [Activity 3: Detrending a commodity (Example 3.7)]{.r-fit-text} {.smaller}
+
+-   Given the code to generate the plot with the trend line, how would you view the equation of the trend line?
+-   Visualize the de-trended series
+-   Compute the acf of the salmon series and the detrended series. What do you notice?
 
 ## Next time
-- Cross-correlation and regression with multiple time series ($x_t$ on x-axis instead of $t$ on x-axis like with the salmon)
-- Activities and examples
-- Smoothing
+
+-   Cross-correlation and regression with multiple time series ($x_t$ on x-axis instead of $t$ on x-axis like with the salmon)
+-   Activities and examples
+-   Smoothing

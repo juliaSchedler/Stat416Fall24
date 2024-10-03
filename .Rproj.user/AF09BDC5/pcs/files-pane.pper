@@ -1,13 +1,13 @@
 {
     "sortOrder": [
         {
-            "columnIndex": 4,
-            "ascending": false
-        },
-        {
             "columnIndex": 2,
             "ascending": true
+        },
+        {
+            "columnIndex": 4,
+            "ascending": false
         }
     ],
-    "path": "~/Documents/Stat 416/Stat416Fall24/Assignments"
+    "path": "~/Documents/Stat 416/Stat416Fall24/LectureNotes/SolutionSlides"
 }
