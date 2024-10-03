@@ -1,3 +1,5 @@
 # COURSE WEBSITE HAS MOVED {.unnumbered}
 
-Please access materials here: <https://juliaschedler.github.io/Stat416_CourseWebsite/LectureNotes/Lecture4.html>
+Please access materials here:
+
+<https://juliaschedler.github.io/Stat416_CourseWebsite/>
